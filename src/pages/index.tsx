@@ -1,20 +1,18 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import tw, { css } from "twin.macro";
-import { Button } from "../components/button";
+import tw, { css } from 'twin.macro';
+import { Button } from '../components/button';
 
 const container = css`
   ${tw`mx-auto m-4 p-4 rounded bg-gray-400`}
 `;
 
-export const Home = (): JSX.Element => (
+export const Page = (): JSX.Element => (
   <div css={container}>
     <main>
-      <h1 tw="text-5xl font-bold">
-        Nextjs App with TypeScript, ESlint, Jest, Emotion, Tailwind and Twin
-      </h1>
+      <h1 tw='text-5xl font-bold'>Concern Kalte</h1>
       <Button />
     </main>
   </div>
-)
+);
 
-export default Home
+export default Page;
