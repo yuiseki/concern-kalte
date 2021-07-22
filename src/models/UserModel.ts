@@ -7,6 +7,7 @@ interface IUser {
   name?: string;
   email: string;
   password: string;
+  comparePassword: (candidatePassword: string) => boolean;
 }
 
 export interface IUserModel extends IUser, mongoose.Document {}
@@ -40,11 +41,11 @@ schema.pre('save', async function (next) {
 });
 
 schema.path('email').validate(async (value) => {
-  const emailCount = await mongoose.models.User.countDocuments({
+  const emailCount = await mongoose.models.UserModel.countDocuments({
     email: value,
   });
   return !emailCount;
 }, 'Email already exists');
 
 export const UserModel =
-  mongoose.models.UserModel || mongoose.model<IUserModel>('User', schema);
+  mongoose.models.UserModel || mongoose.model<IUserModel>('UserModel', schema);

@@ -4,16 +4,28 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI ?? 'mongodb://localhost:27017';
-const MONGODB_DB = process.env.MONGODB_DB ?? 'concern-kalte';
+const MONGODB_PROTOCOL = process.env.MONGODB_PROTOCOL ?? 'mongodb://';
+const MONGODB_HOST = process.env.MONGODB_HOST ?? 'localhost:27017';
+const MONGODB_DB = process.env.MONGODB_DB ?? 'concern-kalte-dev';
 const MONGODB_USER = process.env.MONGODB_USER;
 const MONGODB_PASS = process.env.MONGODB_PASS;
 
-if (!MONGODB_URI || !MONGODB_USER || !MONGODB_PASS) {
+if (!MONGODB_HOST || !MONGODB_USER || !MONGODB_PASS) {
   throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
+    'Please define the MONGODB_HOST environment variable inside .env.local'
   );
 }
+
+const MONGODB_ENDPOINT =
+  MONGODB_PROTOCOL +
+  MONGODB_USER +
+  ':' +
+  MONGODB_PASS +
+  '@' +
+  MONGODB_HOST +
+  '/' +
+  MONGODB_DB +
+  '?retryWrites=true&w=majority&authSource=admin';
 
 export const dbOptions = {
   useNewUrlParser: true,
@@ -22,9 +34,6 @@ export const dbOptions = {
   bufferMaxEntries: 0,
   useFindAndModify: false,
   useCreateIndex: true,
-  user: MONGODB_USER,
-  pass: MONGODB_PASS,
-  dbName: MONGODB_DB,
 };
 
 /**
@@ -46,7 +55,7 @@ export const dbConnect = async () => {
 
   if (!cached.promise) {
     cached.promise = mongoose
-      .connect(MONGODB_URI, dbOptions)
+      .connect(MONGODB_ENDPOINT, dbOptions)
       .then((mongoose) => {
         return mongoose;
       });
