@@ -2,14 +2,28 @@ import * as mockingoose from 'mockingoose';
 import { UserModel } from './UserModel';
 
 describe('UserModel', () => {
-  it('正常にsaveできること', () => {
-    const user1 = new UserModel({
-      name: 'user1',
-      email: 'example@example.com',
-      password: 'test',
+  describe('save', () => {
+    it('正常にsaveできること', () => {
+      const user1 = new UserModel({
+        name: 'user1',
+        email: 'example@example.com',
+        password: 'test',
+      });
+      mockingoose(UserModel).toReturn(user1, 'save');
+      return expect(user1.save()).resolves.toBe(user1);
     });
-    mockingoose(UserModel).toReturn(user1, 'save');
-    return expect(user1.save()).resolves.toBe(user1);
+    it('passwordがbcryptで暗号化されていて元のパスワードが検証できること', async () => {
+      const user1 = new UserModel({
+        name: 'user1',
+        email: 'example@example.com',
+        password: 'test',
+      });
+      mockingoose(UserModel).toReturn(null, 'save');
+      const user = await user1.save();
+      expect(user.password).toMatch(/^\$2a\$10.*/);
+      const result = await user.comparePassword('test');
+      expect(result).toBe(true);
+    });
   });
   describe('validation', () => {
     it('emailは必須', async () => {
@@ -29,18 +43,6 @@ describe('UserModel', () => {
       return expect(user1.save()).rejects.toThrow(
         'User validation failed: password: Path `password` is required.'
       );
-    });
-    it('passwordがbcryptで暗号化されていて元のパスワードが検証できること', async () => {
-      const user1 = new UserModel({
-        name: 'user1',
-        email: 'example@example.com',
-        password: 'test',
-      });
-      mockingoose(UserModel).toReturn(null, 'save');
-      const user = await user1.save();
-      expect(user.password).toMatch(/^\$2a\$10.*/);
-      const result = await user.comparePassword('test');
-      expect(result).toBe(true);
     });
     it('emailはユニークでなければならない', async () => {
       const user1 = new UserModel({
