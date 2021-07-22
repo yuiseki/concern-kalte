@@ -20,6 +20,11 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
+schema.methods.comparePassword = async function (candidatePassword) {
+  const user = this as IUserModel;
+  return bcrypt.compare(candidatePassword, user.password);
+};
+
 schema.pre('save', async function (next) {
   const user = this as IUserModel;
   // passwordが変更されていなかったらなにもしない

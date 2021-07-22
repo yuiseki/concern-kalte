@@ -30,21 +30,17 @@ describe('UserModel', () => {
         'User validation failed: password: Path `password` is required.'
       );
     });
-    it('passwordがbcryptで暗号化されていること', async () => {
+    it('passwordがbcryptで暗号化されていて元のパスワードが検証できること', async () => {
       const user1 = new UserModel({
         name: 'user1',
         email: 'example@example.com',
-        password: 'text',
+        password: 'test',
       });
       mockingoose(UserModel).toReturn(null, 'save');
-      UserModel.create(user1).then((user) => {
-        // @ts-ignore
-        expect(user.password).toBe('test');
-        // @ts-ignore
-        user.save((_err, user) => {
-          expect(user.password).toMatch(/^\$2a\$10.*/);
-        });
-      });
+      const user = await user1.save();
+      expect(user.password).toMatch(/^\$2a\$10.*/);
+      const result = await user.comparePassword('test');
+      expect(result).toBe(true);
     });
     it('emailはユニークでなければならない', async () => {
       const user1 = new UserModel({
