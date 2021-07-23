@@ -4,6 +4,8 @@ import { Global } from '@emotion/react';
 import { AppProps } from 'next/app';
 import {} from 'react-icons/fa';
 import { Provider } from 'next-auth/client';
+import React, { useEffect } from 'react';
+import { Layout } from '~/components/Layout';
 
 const globalStyles = css`
   html,
@@ -19,22 +21,36 @@ const globalStyles = css`
   }
 `;
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <Provider session={pageProps.session}>
-    <>
-      <Head>
-        <title>生活お悩みカルテ</title>
-        <link rel='icon' href='/favicon.ico' />
-        <link
-          href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap'
-          rel='stylesheet'
-        />
-      </Head>
-      <GlobalStyles />
-      <Global styles={globalStyles} />
-      <Component {...pageProps} />
-    </>
-  </Provider>
-);
+const App = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+  return (
+    <Provider session={pageProps.session}>
+      <>
+        <Head>
+          <title>生活お悩みカルテ</title>
+          <link rel='icon' href='/favicon.ico' />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap'
+            rel='stylesheet'
+          />
+          <link
+            rel='stylesheet'
+            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
+          />
+        </Head>
+        <GlobalStyles />
+        <Global styles={globalStyles} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </>
+    </Provider>
+  );
+};
 
 export default App;
