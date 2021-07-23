@@ -29,6 +29,16 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
+schema.set('toJSON', {
+  transform: (doc, user) => {
+    delete user._id;
+    delete user.__v;
+    if (user.password) {
+      delete user.password;
+    }
+  },
+});
+
 /**
  * validations
  */
