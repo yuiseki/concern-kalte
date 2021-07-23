@@ -28,7 +28,6 @@ export const Page: React.VFC = () => {
       method: 'POST',
     });
     const result = await res.json();
-    // @ts-ignore
     console.info(result);
   }, []);
 

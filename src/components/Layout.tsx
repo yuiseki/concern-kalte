@@ -24,6 +24,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import Link from 'next/link';
 
 const drawerWidth = 240;
@@ -90,6 +91,14 @@ export function Layout({ children }: Props) {
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText primary='トップページ' />
+              </ListItem>
+            </Link>
+            <Link href='/kalte'>
+              <ListItem button key='生活お悩みカルテ'>
+                <ListItemIcon>
+                  <FormatListNumberedIcon />
+                </ListItemIcon>
+                <ListItemText primary='生活お悩みカルテ' />
               </ListItem>
             </Link>
             <Link href='/settings'>

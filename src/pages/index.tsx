@@ -18,9 +18,11 @@ export const Page: React.VFC = () => {
           <h3 tw='text-3xl font-bold'>
             {me.name ? me.name : '名無し'}({me.email}) さん、ようこそ
           </h3>
-          <p>
-            <Link href='/settings'>ユーザー設定</Link>で名前を設定してください
-          </p>
+          {!me.name && (
+            <p>
+              <Link href='/settings'>ユーザー設定</Link>で名前を設定してください
+            </p>
+          )}
         </>
       )}
       {!loading && !session && (
