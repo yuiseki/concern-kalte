@@ -3,6 +3,10 @@ import bcrypt from 'bcryptjs';
 
 const HASH_ROUNDS = 10;
 
+/**
+ * TypeScript用型定義
+ */
+
 interface IUser {
   name?: string;
   email: string;
@@ -11,6 +15,10 @@ interface IUser {
 }
 
 export interface IUserModel extends IUser, mongoose.Document {}
+
+/**
+ * スキーマ定義
+ */
 
 const schema = new mongoose.Schema(
   {
@@ -21,14 +29,26 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-schema.methods.comparePassword = async function (candidatePassword) {
-  const user = this as IUserModel;
-  return bcrypt.compare(candidatePassword, user.password);
-};
+/**
+ * validations
+ */
 
+// emailフィールドのバリデーション
+schema.path('email').validate(async (value) => {
+  const emailCount = await mongoose.models.UserModel.countDocuments({
+    email: value,
+  });
+  return !emailCount;
+}, 'Email already exists');
+
+/**
+ * hooks
+ */
+
+// save時のhook
 schema.pre('save', async function (next) {
   const user = this as IUserModel;
-  // passwordが変更されていなかったらなにもしない
+  // passwordフィールドが変更されていなかったらなにもしない
   if (!this.isModified('password')) next();
   // passwordが変更されていたらbcryptで暗号化する
   try {
@@ -40,12 +60,15 @@ schema.pre('save', async function (next) {
   }
 });
 
-schema.path('email').validate(async (value) => {
-  const emailCount = await mongoose.models.UserModel.countDocuments({
-    email: value,
-  });
-  return !emailCount;
-}, 'Email already exists');
+/**
+ * methods
+ */
+
+// 入力されたパスワードがbcryptで暗号化されたパスワードと一致するか比較するメソッド
+schema.methods.comparePassword = async function (candidatePassword) {
+  const user = this as IUserModel;
+  return bcrypt.compare(candidatePassword, user.password);
+};
 
 export const UserModel =
   mongoose.models.UserModel || mongoose.model<IUserModel>('UserModel', schema);
