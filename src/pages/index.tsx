@@ -23,6 +23,17 @@ export const Page: React.VFC = () => {
               <Link href='/settings'>ユーザー設定</Link>で名前を設定してください
             </p>
           )}
+          {!me.birthYear && (
+            <p>
+              <Link href='/settings'>ユーザー設定</Link>
+              で生まれた年を設定してください
+            </p>
+          )}
+          {!me.gender && (
+            <p>
+              <Link href='/settings'>ユーザー設定</Link>で性別を設定してください
+            </p>
+          )}
         </>
       )}
       {!loading && !session && (

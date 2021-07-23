@@ -1,6 +1,6 @@
 import { getSession } from 'next-auth/client';
 import { dbConnect } from '~/lib/dbConnect';
-import { UserModel } from '~/models/UserModel';
+import { IUserModel, UserModel } from '~/models/UserModel';
 
 export default async (req, res) => {
   const session = await getSession({ req });
@@ -12,7 +12,9 @@ export default async (req, res) => {
   }
 
   await dbConnect();
-  const user = await UserModel.findOne({ email: session.user.email });
+  const user: IUserModel = await UserModel.findOne({
+    email: session.user.email,
+  });
   if (!user) {
     res.status(404);
     res.end();
@@ -25,6 +27,16 @@ export default async (req, res) => {
       break;
     case 'POST':
       user.name = req.body.name;
+      if (req.body.birthYear === 'null') {
+        user.birthYear = null;
+      } else {
+        user.birthYear = parseInt(req.body.birthYear);
+      }
+      if (req.body.gender === 'null') {
+        user.gender = null;
+      } else {
+        user.gender = req.body.gender;
+      }
       await UserModel.findOneAndUpdate({ _id: user._id }, user, {
         upsert: true,
       });

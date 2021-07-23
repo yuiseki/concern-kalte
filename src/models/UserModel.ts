@@ -9,8 +9,14 @@ const HASH_ROUNDS = 10;
 
 interface IUser {
   name?: string;
-  email: string;
+  birthYear?: number;
+  gender?: string;
+  address?: string;
+  placeState?: string;
+  placeCity?: string;
+  yearlyIncome?: number;
   password: string;
+  email: string;
   comparePassword: (candidatePassword: string) => boolean;
 }
 
@@ -22,7 +28,13 @@ export interface IUserModel extends IUser, mongoose.Document {}
 
 const schema = new mongoose.Schema(
   {
-    name: String,
+    name: { type: String, default: null },
+    birthYear: { type: Number, default: null },
+    gender: { type: String, default: null },
+    address: { type: String, default: null },
+    placeState: { type: String, default: null },
+    placeCity: { type: String, default: null },
+    yearlyIncome: { type: Number, default: null },
     email: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
   },
