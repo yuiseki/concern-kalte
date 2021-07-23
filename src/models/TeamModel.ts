@@ -8,7 +8,7 @@ export interface ITeamModel extends ITeam, mongoose.Document {}
 
 const schema = new mongoose.Schema(
   {
-    name: String,
+    name: { type: String, required: true },
   },
   { timestamps: true }
 );
