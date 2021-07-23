@@ -6,7 +6,7 @@ export default async (req, res) => {
   const session = await getSession({ req });
 
   if (!session) {
-    res.status(401);
+    res.status(401).json({ error: 'Unauthorized' });
     res.end();
     return;
   }
@@ -14,9 +14,15 @@ export default async (req, res) => {
   await dbConnect();
   const user = await UserModel.findOne({ email: session.user.email });
   if (!user) {
-    res.status(401);
+    res.status(401).json({ error: 'Unauthorized' });
     res.end();
     return;
+  } else {
+    if (!user.isAdmin) {
+      res.status(401).json({ error: 'Unauthorized' });
+      res.end();
+      return;
+    }
   }
 
   if (req.method === 'GET') {
