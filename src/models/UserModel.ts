@@ -14,7 +14,7 @@ interface IUser {
   address?: string;
   placeState?: string;
   placeCity?: string;
-  yearlyIncome?: number;
+  personalYearlyIncome?: string;
   password: string;
   email: string;
   comparePassword: (candidatePassword: string) => boolean;
@@ -35,7 +35,7 @@ const schema = new mongoose.Schema(
     address: { type: String, default: null },
     placeState: { type: String, default: null },
     placeCity: { type: String, default: null },
-    yearlyIncome: { type: Number, default: null },
+    personalYearlyIncome: { type: String, default: null },
     email: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
     team: { type: mongoose.SchemaTypes.ObjectId, ref: 'TeamModel', default: null },

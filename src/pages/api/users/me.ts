@@ -37,6 +37,11 @@ export default async (req, res) => {
       } else {
         user.gender = req.body.gender;
       }
+      if (req.body.personalYearlyIncome === 'null') {
+        user.personalYearlyIncome = null;
+      } else {
+        user.personalYearlyIncome = req.body.personalYearlyIncome;
+      }
       await UserModel.findOneAndUpdate({ _id: user._id }, user, {
         upsert: true,
       });
