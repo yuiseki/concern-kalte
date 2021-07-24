@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 interface ITeam {
-  name?: string;
+  name: string;
   users?: []
 }
 
