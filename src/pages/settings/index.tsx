@@ -26,6 +26,7 @@ export const Page: React.VFC = () => {
         name: e.target.name.value,
         birthYear: e.target.birthYear.value,
         gender: e.target.gender.value,
+        personalYearlyIncome: e.target.personalYearlyIncome.value,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -105,6 +106,31 @@ export const Page: React.VFC = () => {
                   <MenuItem value='male'>男性</MenuItem>
                   <MenuItem value='female'>女性</MenuItem>
                   <MenuItem value='other'>その他</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <FormControl variant='outlined'>
+                <InputLabel id='input-label-personalYearlyIncome'>個人年収</InputLabel>
+                <Select
+                  labelId='input-label-personalYearlyIncome'
+                  label='個人年収'
+                  id='personalYearlyIncome'
+                  name='personalYearlyIncome'
+                  defaultValue={String(me.personalYearlyIncome)}
+                >
+                  <MenuItem value='null'>未回答</MenuItem>
+                  <MenuItem value='0-100'>0-100</MenuItem>
+                  <MenuItem value='100-200'>100-200</MenuItem>
+                  <MenuItem value='200-300'>200-300</MenuItem>
+                  <MenuItem value='300-400'>300-400</MenuItem>
+                  <MenuItem value='400-500'>400-500</MenuItem>
+                  <MenuItem value='500-600'>500-600</MenuItem>
+                  <MenuItem value='600-700'>600-700</MenuItem>
+                  <MenuItem value='700-800'>700-800</MenuItem>
+                  <MenuItem value='800-900'>800-900</MenuItem>
+                  <MenuItem value='900-1000'>900-1000</MenuItem>
+                  <MenuItem value='1000-'>1000-</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
