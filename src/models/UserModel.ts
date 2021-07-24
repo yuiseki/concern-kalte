@@ -18,6 +18,7 @@ interface IUser {
   password: string;
   email: string;
   comparePassword: (candidatePassword: string) => boolean;
+  team?: mongoose.ObjectId;
 }
 
 export interface IUserModel extends IUser, mongoose.Document {}
@@ -37,6 +38,7 @@ const schema = new mongoose.Schema(
     yearlyIncome: { type: Number, default: null },
     email: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
+    team: { type: mongoose.SchemaTypes.ObjectId, ref: 'TeamModel', default: null },
   },
   { timestamps: true }
 );
