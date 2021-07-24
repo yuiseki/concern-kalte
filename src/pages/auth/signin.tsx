@@ -1,12 +1,6 @@
 import React from 'react';
 import { getCsrfToken, useSession } from 'next-auth/client';
-import {
-  Grid,
-  Input,
-  Button,
-  FormControl,
-  InputLabel,
-} from '@material-ui/core';
+import { Grid, Button, TextField } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 
@@ -26,16 +20,15 @@ export default function SignIn({ csrfToken }: { csrfToken: string }) {
               <EmailIcon />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='email'>メールアドレス</InputLabel>
-                <Input
-                  required
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='example@example.com'
-                />
-              </FormControl>
+              <TextField
+                type='email'
+                id='email'
+                name='email'
+                required
+                label='メールアドレス'
+                variant='outlined'
+                placeholder='example@example.com'
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -45,16 +38,15 @@ export default function SignIn({ csrfToken }: { csrfToken: string }) {
               <LockIcon />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='password'>パスワード</InputLabel>
-                <Input
-                  required
-                  type='password'
-                  id='password'
-                  name='password'
-                  placeholder='********'
-                />
-              </FormControl>
+              <TextField
+                type='password'
+                id='password'
+                name='password'
+                required
+                label='パスワード'
+                variant='outlined'
+                placeholder='********'
+              />
             </Grid>
           </Grid>
         </Grid>

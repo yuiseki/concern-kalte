@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
 import { getCsrfToken, useSession } from 'next-auth/client';
-import {
-  Grid,
-  Input,
-  Button,
-  FormControl,
-  InputLabel,
-  FormHelperText,
-} from '@material-ui/core';
+import { Grid, Button, TextField } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import { useEffect } from 'react';
@@ -37,16 +30,15 @@ export default function SignIn({ csrfToken }: { csrfToken: string }) {
               <EmailIcon />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='email'>メールアドレス</InputLabel>
-                <Input
-                  required
-                  type='email'
-                  id='email'
-                  name='email'
-                  placeholder='example@example.com'
-                />
-              </FormControl>
+              <TextField
+                type='email'
+                id='email'
+                name='email'
+                required
+                label='メールアドレス'
+                variant='outlined'
+                placeholder='example@example.com'
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -56,19 +48,18 @@ export default function SignIn({ csrfToken }: { csrfToken: string }) {
               <LockIcon />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='password'>パスワード</InputLabel>
-                <Input
-                  required
-                  type='password'
-                  id='password'
-                  name='password'
-                  placeholder='********'
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </FormControl>
+              <TextField
+                type='password'
+                id='password'
+                name='password'
+                required
+                label='パスワード'
+                variant='outlined'
+                placeholder='********'
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -78,26 +69,19 @@ export default function SignIn({ csrfToken }: { csrfToken: string }) {
               <LockIcon />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='password-confirm'>
-                  パスワード（確認）
-                </InputLabel>
-                <Input
-                  required
-                  type='password'
-                  id='password-comfirm'
-                  placeholder='********'
-                  error={!passwordMatched}
-                  onChange={(e) => {
-                    setPasswordConfirm(e.target.value);
-                  }}
-                />
-                {!passwordMatched && (
-                  <FormHelperText error>
-                    パスワードが一致していません
-                  </FormHelperText>
-                )}
-              </FormControl>
+              <TextField
+                type='password'
+                id='password-confirm'
+                required
+                label='パスワード（確認）'
+                variant='outlined'
+                placeholder='********'
+                error={!passwordMatched}
+                helperText={!passwordMatched && 'パスワードが一致していません'}
+                onChange={(e) => {
+                  setPasswordConfirm(e.target.value);
+                }}
+              />
             </Grid>
           </Grid>
         </Grid>

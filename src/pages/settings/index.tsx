@@ -4,12 +4,11 @@ import { getSession } from 'next-auth/client';
 import {
   Button,
   FormControl,
-  FormHelperText,
   Grid,
-  Input,
   InputLabel,
   MenuItem,
   Select,
+  TextField,
 } from '@material-ui/core';
 import useSWR from 'swr';
 import 'twin.macro';
@@ -50,34 +49,33 @@ export const Page: React.VFC = () => {
             direction='column'
           >
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='email'>メールアドレス</InputLabel>
-                <Input
-                  required
-                  type='email'
-                  id='email'
-                  name='email'
-                  disabled
-                  defaultValue={me.email}
-                />
-                <FormHelperText>メールアドレスは変更できません</FormHelperText>
-              </FormControl>
+              <TextField
+                defaultValue={me.email}
+                type='email'
+                id='email'
+                name='email'
+                label='メールアドレス'
+                variant='outlined'
+                disabled
+                helperText='メールアドレスは変更できません'
+              />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='name'>名前</InputLabel>
-                <Input
-                  type='text'
-                  id='name'
-                  name='name'
-                  defaultValue={me.name}
-                />
-              </FormControl>
+              <TextField
+                defaultValue={me.name}
+                type='text'
+                id='name'
+                name='name'
+                label='名前'
+                variant='outlined'
+              />
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='birthYear'>生年</InputLabel>
+              <FormControl variant='outlined'>
+                <InputLabel id='input-label-birth-year'>生まれた年</InputLabel>
                 <Select
+                  labelId='input-label-birth-year'
+                  label='生まれた年'
                   id='birthYear'
                   name='birthYear'
                   defaultValue={String(me.birthYear)}
@@ -94,9 +92,11 @@ export const Page: React.VFC = () => {
               </FormControl>
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel htmlFor='gender'>性別</InputLabel>
+              <FormControl variant='outlined'>
+                <InputLabel id='input-label-gender'>性別</InputLabel>
                 <Select
+                  labelId='input-label-gender'
+                  label='性別'
                   id='gender'
                   name='gender'
                   defaultValue={String(me.gender)}
