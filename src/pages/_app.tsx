@@ -5,7 +5,6 @@ import { AppProps } from 'next/app';
 import {} from 'react-icons/fa';
 import { Provider } from 'next-auth/client';
 import React, { useEffect } from 'react';
-import { Layout } from '~/components/Layout';
 
 const globalStyles = css`
   html,
