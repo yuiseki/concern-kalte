@@ -1,5 +1,9 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import React, { useEffect, useState } from 'react';
+import clsx from 'clsx';
+import 'twin.macro';
+import { useLocalStorageValue } from '~/hooks/useLocalStorage';
+import useSWR from 'swr';
 import {
   Container,
   createStyles,
@@ -20,14 +24,23 @@ import {
   MenuItem,
   Slider,
   Box,
+  CardContent,
+  Card,
+  CardActions,
+  Button,
+  CardHeader,
+  Link,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import clsx from 'clsx';
-import 'twin.macro';
-import { useLocalStorageValue } from '~/hooks/useLocalStorage';
-import useSWR from 'swr';
+import HomeIcon from '@material-ui/icons/Home';
+import MailIcon from '@material-ui/icons/Mail';
+import PhoneIcon from '@material-ui/icons/Phone';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const drawerWidth = 240;
 
@@ -331,7 +344,8 @@ const SolutionList: React.VFC = () => {
     console.log('SolutionList personal income: ', personalYearlyIncome);
     const filteredSolutions = allSolutions
       .filter((s) => {
-        if (areaState === 'null') {
+        // 都道府県
+        if (!areaState || areaState === 'null') {
           return s;
         }
         if (s.areaState === areaState) {
@@ -339,7 +353,8 @@ const SolutionList: React.VFC = () => {
         }
       })
       .filter((s) => {
-        if (areaCity === 'null') {
+        // 市区町村
+        if (!areaCity || areaCity === 'null') {
           return s;
         }
         if (s.areaCity === areaCity) {
@@ -347,16 +362,37 @@ const SolutionList: React.VFC = () => {
         }
       })
       .filter((s) => {
-        if (
-          personalYearlyIncome === undefined ||
-          personalYearlyIncome === 'undefined'
-        ) {
+        // 年齢
+        if (!birthYear || birthYear === 'null') {
           return s;
         }
-        if (personalYearlyIncome === null || personalYearlyIncome === 'null') {
+        if (!s.maxAge && !s.minAge) {
           return s;
         }
-        if (personalYearlyIncome < s.personalYearlyIncome) {
+        if (birthYear) {
+          const age = new Date().getFullYear() - parseInt(birthYear);
+          if (s.maxAge && s.maxAge > age) {
+            return s;
+          }
+        }
+      })
+      .filter((s) => {
+        if (!gender || gender !== 'null') {
+          return s;
+        }
+        if (!s.gender) {
+          return s;
+        }
+      })
+      .filter((s) => {
+        // 個人年収
+        if (!s.maxPersonalYearlyIncome && !s.minPersonalYearlyIncome) {
+          return s;
+        }
+        if (typeof personalYearlyIncome !== 'number') {
+          return s;
+        }
+        if (personalYearlyIncome <= s.maxPersonalYearlyIncome) {
           return s;
         }
       });
@@ -376,12 +412,66 @@ const SolutionList: React.VFC = () => {
       <div tw='my-4'>
         {solutions.map((s) => {
           return (
-            <div key={s.id}>
-              <h1>{s.name}</h1>
-              <p>
-                {s.areaState} {s.areaCity}
-              </p>
-            </div>
+            <Card key={s.id} tw='my-5'>
+              <CardHeader title={s.id} />
+              <CardContent>
+                <List>
+                  <ListItem>
+                    <p>
+                      対象地域：
+                      {s.areaState} {s.areaCity}
+                    </p>
+                  </ListItem>
+                  {s.org && (
+                    <ListItem>
+                      <p>組織：{s.org}</p>
+                    </ListItem>
+                  )}
+                  {s.address && (
+                    <ListItem>
+                      <p>住所：{s.address}</p>
+                      <Divider />
+                    </ListItem>
+                  )}
+                </List>
+                {s.about && (
+                  <Accordion>
+                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                      <Typography>概要</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>{s.about}</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                )}
+              </CardContent>
+              <CardActions>
+                {s.url && (
+                  <Link href={s.url} target='_blank'>
+                    <Button>
+                      <HomeIcon />
+                      Webサイト
+                    </Button>
+                  </Link>
+                )}
+                {s.email && (
+                  <Link href={'mailto:' + s.email}>
+                    <Button>
+                      <MailIcon />
+                      Email
+                    </Button>
+                  </Link>
+                )}
+                {s.tel && (
+                  <Link href={'tel:' + s.tel}>
+                    <Button>
+                      <PhoneIcon />
+                      電話
+                    </Button>
+                  </Link>
+                )}
+              </CardActions>
+            </Card>
           );
         })}
       </div>

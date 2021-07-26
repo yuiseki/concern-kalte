@@ -2,217 +2,316 @@
   {
     "id": "東京都 千代田区 生活保護",
     "name": "生活保護",
+    "about": "日本国憲法第25条に規定する「生存権」の理念に基づき、国が定める基準に満たない収入のため、生活に困窮しているすべての国民に対して、国による最低限度の生活保障と自立の助長を目的とした制度です。生活保護法では、すべての国民はこの法律の定める要件を満たす限り、この法律による保護を無差別平等に受けることができる、とその権利を明文化し規定しています。",
+    "org": "千代田区役所 保健福祉部生活支援課相談・保護係",
+    "address": "〒102-8688 東京都千代田区九段南 1-2-1 （千代田区役所3階）",
+    "tel": "03-5211-4216",
+    "email": "seikatsushien@city.chiyoda.lg.jp",
+    "url": "https://www.city.chiyoda.lg.jp/koho/kenko/sekatsu/sekatsuhogo.html",
     "areaState": "東京都",
     "areaCity": "千代田区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 中央区 生活保護",
     "name": "生活保護",
+    "about": "生活に困っている方に、生活保護法に基づいて生活の保障をし、自分の力または他の方法で生活ができるようになるまで援助する制度です。保護の条件や支給される保護費は、生活の状況によって異なります。生活保護についてのご相談は、福祉保健部生活支援課相談調整係（区役所4階）での面接相談の他、電話での問合せにも応じています。また、来所が困難な場合には、担当者がご自宅へお伺いしてご相談に応じます。",
+    "org": "中央区役所 生活支援課相談調整係",
+    "address": "東京都中央区築地 一丁目1番1号",
+    "tel": "03-3546-5496",
+    "url": "https://www.city.chuo.lg.jp/kurasi/enzyo/seikatuhogo/seikatuhogo.html",
     "areaState": "東京都",
     "areaCity": "中央区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 港区 生活保護",
     "name": "生活保護",
+    "about": "生活保護は、病気や老齢、離婚や失業等さまざまな事情で生活に困ったとき、不足する生活費等を補うことにより、最低限度の生活を保障するとともに、自立を助長（自分の力で生活していけるように援助）する制度です。また、生活保護の申請は国民の権利です。生活保護を必要とする可能性はどなたにもあるものですので、ためらわずに、各総合支所区民課生活福祉係へご相談ください。",
+    "org": "港区役所",
+    "address": "〒105-8511 東京都港区芝公園 1丁目5番25号",
+    "tel": "03-3578-2111",
+    "url": "https://www.city.minato.tokyo.jp/seifukuchousei/kenko/fukushi/sekatsu/sekatsuhogo.html",
     "areaState": "東京都",
     "areaCity": "港区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 新宿区 生活保護",
     "name": "生活保護",
+    "about": "病気などで生活に困っている人に対して、生活保護法に基づいて生活の保障をし、自分の力、または他の方法で生活できるようになるまで手助けするしくみです。また、生活保護の申請は国民の権利です。生活保護を必要とする可能性はどなたにもあるものですので、ためらわずにご相談ください。",
+    "org": "新宿区役所 福祉部-生活福祉課・保護担当課 相談支援係",
+    "address": "〒160-8484 東京都新宿区歌舞伎町 1-4-1 第二分庁舎 1階窓口",
+    "tel": "03-5273-4552",
+    "url": "https://www.city.shinjuku.lg.jp/fukushi/file04_01_00002.html",
     "areaState": "東京都",
     "areaCity": "新宿区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 文京区 生活保護",
     "name": "生活保護",
+    "about": "私たちはだれでも、病気やケガ、失業、高齢、離別や死別など様々な事情により、生活費や医療費に困ることがあります。生活保護は、このような時に憲法第25条で定められた「健康で文化的な最低限度の生活」を保障するとともに、生活の自立を助長することを目的とした制度です。 生活保護を必要とする可能性はどなたにもあるものですので、ためらわずにご相談ください。",
+    "org": "文京区役所 生活福祉課相談係",
+    "address": "〒112-8555 東京都文京区春日 1丁目16番21号 文京シビックセンター9階北側",
+    "tel": "03-5803-1216",
+    "url": "https://www.city.bunkyo.lg.jp/hoken/seikatsu/seiho.html",
     "areaState": "東京都",
     "areaCity": "文京区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 台東区 生活保護",
     "name": "生活保護",
+    "about": "病気や障害などのために、生活や医療に困り、他の方法がないときは、生活保護法による保護が受けられます。保護には生活、教育、住宅、医療、介護、出産、生業、葬祭の8つの種類があり、収入が厚生労働大臣の決めた最低生活の基準に達しないとき、その不足額が支給されます。",
+    "org": "台東区役所 保護課",
+    "address": "〒110-8615 東京都台東区東上野 4丁目5番6号",
+    "tel": "03-5246-1183",
+    "url": "https://www.city.taito.lg.jp/kurashi/soudan/seikatsu/seikatsuhogo.html",
     "areaState": "東京都",
     "areaCity": "台東区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 墨田区 生活保護",
     "name": "生活保護",
+    "about": "生活に困窮し、他に方法がないときに生活保護法による保護が受けられます。保護の種類は、生活・住宅・教育・介護・医療・出産・生業・葬祭に分かれており、収入が決められた最低基準に達しないときは、不足額が支給されます。",
+    "org": "墨田区役所 生活福祉課 相談係",
+    "address": "〒130-8640 墨田区吾妻橋 一丁目23番20号 区役所3階",
+    "tel": "03-5608-6154",
+    "url": "https://www.city.sumida.lg.jp/kenko_fukushi/seikatuhukusi/seikatuhogosoudan.html",
     "areaState": "東京都",
     "areaCity": "墨田区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 江東区 生活保護",
     "name": "生活保護",
+    "about": "生活保護は、憲法25条の定めにもとづいて、ケガや病気、高齢などの要因で収入が少なくなり、最低限度の生活ができないときに、その不足分を補うとともに、自力で生活していけるように援助していくことを目的とした制度です。現にくらしに困っていれば、国民のだれもが差別されることなく、生活保護をうけることができますが、そのためには、次のようなことを守らなければなりません。： 利用できる資産は、売ったり貸したりして、くらしのために活用すること。 働ける人は、能力に応じて働くこと。 親子等から、できるだけの援助をうけること。 他の法律や制度による保障がうけられる人は、かならずそれを活用すること。",
+    "org": "江東区役所 生活支援部 保護第一課 庶務係",
+    "address": "〒135-8383 東京都江東区東陽 4-11-28 区役所2階24番",
+    "tel": "03-3645-3101",
+    "url": "https://www.city.koto.lg.jp/250201/fukushi/sekatsu/hogo/7127.html",
     "areaState": "東京都",
     "areaCity": "江東区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 品川区 生活保護",
     "name": "生活保護",
+    "about": "国が生活に困窮している国民に対し、その困窮の程度に応じ必要な保護を行い、その最低限度の生活を保障するとともに、その自立を助長することを目的としています。",
+    "org": "品川区役所 生活福祉課 保護事務係",
+    "address": "〒140-8715 東京都品川区広町 2-1-36",
+    "tel": "03-5742－6713",
+    "url": "https://www.city.shinagawa.tokyo.jp/PC/kenkou/kenkou-seikatsukomaru/hpg000001257.html",
     "areaState": "東京都",
     "areaCity": "品川区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 目黒区 生活保護",
     "name": "生活保護",
+    "about": "憲法で国の義務と規定している生存権（健康で文化的な最低限度の生活）を保障するための制度です。具体的には、病気や障害・高齢等のため働けないので収入がなかったり、収入があっても国の定めた基準より少ない家庭に対し、最低限度の生活を保障する制度です。そして、自分の能力や他の法律などの援助を活用し、自立して生活できるよう手助けする制度です。",
+    "org": "目黒区役所 生活福祉課 相談援護係",
+    "address": "〒153-8573 目黒区上目黒二丁目19番15号",
+    "tel": "03-5722-9853",
+    "url": "https://www.city.meguro.tokyo.jp/kurashi/seikatsu_fukushi/enjo/hogo.html",
     "areaState": "東京都",
     "areaCity": "目黒区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 大田区 生活保護",
     "name": "生活保護",
+    "about": "生活保護は、働き手の病気や怪我、そのほか様々な事情で暮らしに困っている方々に国が定める最低限度の生活を保障し、自分の力で生活できるよう支援を行うことを目的としている制度です。これは、憲法25条で定められた「すべて国民は、健康で文化的な最低限度の生活を営む権利を有する」という理念に基づくものです。生活保護は、必要とする誰もが平等に受けることができる制度です。ためらわずに各生活福祉課にご相談ください。",
+    "org": "大田区役所 生活福祉課",
+    "address": "〒144-8621 東京都大田区蒲田五丁目13番14号",
+    "tel": "03-5744-1111",
+    "url": "http://www.city.ota.tokyo.jp/seikatsu/fukushi/seikatsu-hogo-soudan.html",
     "areaState": "東京都",
     "areaCity": "大田区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 世田谷区 生活保護",
     "name": "生活保護",
+    "about": "生活保護は、さまざまな事情で生活に困っている方に対して、経済的に足りないところを補うことで生活を保障し、自分の力や他の方法で生活できるよう手助けする制度です。これは日本国憲法で保障されている国民の権利です。生活保護は要件を満たす限り、誰でも平等に受けることができ、最低限度の生活が保障されています。生活保護を必要とする可能性はどなたにもあるものですので、ためらわずに各総合支所保健福祉センター生活支援課（各福祉事務所）生活支援にご相談ください。",
+    "org": "世田谷区役所 総合支所 生活支援課",
+    "address": "〒154-8504 東京都世田谷区世田谷 4丁目21番27号",
+    "tel": "03-5432-1111",
+    "url": "https://www.city.setagaya.lg.jp/mokuji/fukushi/004/d00004782.html",
     "areaState": "東京都",
     "areaCity": "世田谷区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 渋谷区 生活保護",
     "name": "生活保護",
+    "org": "渋谷区役所 福祉部 生活福祉課 相談係",
+    "address": "〒150-0041 渋谷区神南1-8-6 2階 渋谷区福祉事務所",
+    "tel": "03-3463-2042",
+    "url": "https://www.city.shibuya.tokyo.jp/soshiki/fukushi/seikatsu_fukushi.html",
     "areaState": "東京都",
     "areaCity": "渋谷区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 中野区 生活保護",
     "name": "生活保護",
+    "org": "中野区役所 健康福祉部 生活援護課",
+    "address": "中野区中野四丁目8番1号",
+    "tel": "03-3228-8926",
+    "email": "seikatuengo＠city.tokyo-nakano.lg.jp",
+    "url": "https://www.city.tokyo-nakano.lg.jp/dept/405000/index.html",
     "areaState": "東京都",
     "areaCity": "中野区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 杉並区 生活保護",
     "name": "生活保護",
+    "about": "高齢や病気などによって、生活費や医療費に困り、ほかに取りうる方法がないときに、その困窮の程度に応じて保護を実施し、自立に向けた援助を行います。本人などから申請を受けて、収入・資産・扶養などを調査のうえ、国の決めた保護基準とその世帯の収入を比較して収入が保護基準を下回る場合に、不足する分が保護費として支給されます。国民の健康で文化的な最低限度の生活は、生活保護法で保障されています。こんなときは福祉事務所へご相談ください。：病気などで働けないため生活ができない。年金が少なく生活費がたりない。家賃が支払えず追い出されそう。失業後、蓄えがなく生活できない。医療費が支払えず、医者にかかれない。",
+    "org": "杉並区役所",
+    "address": "〒166-8570 東京都杉並区阿佐谷南 1丁目15番1号",
+    "tel": "03-3312-2111",
+    "url": "https://www.city.suginami.tokyo.jp/guide/shien/shien/1004860.html",
     "areaState": "東京都",
     "areaCity": "杉並区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 豊島区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "豊島区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 北区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "北区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 荒川区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "荒川区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 板橋区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "板橋区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 練馬区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "練馬区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 足立区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "足立区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 葛飾区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "葛飾区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "東京都 江戸川区 生活保護",
     "name": "生活保護",
     "areaState": "東京都",
     "areaCity": "江戸川区",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   },
   {
     "id": "神奈川県 川崎市 生活保護",
     "name": "生活保護",
     "areaState": "神奈川県",
     "areaCity": "川崎市",
-    "birthYear": 0,
+    "minAge": null,
+    "maxAge": null,
     "gender": null,
-    "personalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100
   }
 ]
