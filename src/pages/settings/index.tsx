@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import useSWR from 'swr';
 import 'twin.macro';
+import { Layout } from '~/components/Layout';
 
 export const Page: React.VFC = () => {
   const { data: me } = useSWR('/api/users/me');
@@ -39,7 +40,7 @@ export const Page: React.VFC = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <h3 tw='text-3xl font-bold'>ユーザー設定</h3>
       {me && (
         <form tw='my-4' onSubmit={onSubmit}>
@@ -111,7 +112,9 @@ export const Page: React.VFC = () => {
             </Grid>
             <Grid item>
               <FormControl variant='outlined'>
-                <InputLabel id='input-label-personalYearlyIncome'>個人年収</InputLabel>
+                <InputLabel id='input-label-personalYearlyIncome'>
+                  個人年収
+                </InputLabel>
                 <Select
                   labelId='input-label-personalYearlyIncome'
                   label='個人年収'
@@ -142,7 +145,7 @@ export const Page: React.VFC = () => {
           </Grid>
         </form>
       )}
-    </>
+    </Layout>
   );
 };
 

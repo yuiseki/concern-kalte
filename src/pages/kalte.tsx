@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import useSWR from 'swr';
 import 'twin.macro';
+import { Layout } from '~/components/Layout';
 
 export const Page: React.VFC = () => {
   const { data: me } = useSWR('/api/users/me');
@@ -34,7 +35,7 @@ export const Page: React.VFC = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       {me && (
         <>
           <h3 tw='text-3xl font-bold'>
@@ -59,7 +60,7 @@ export const Page: React.VFC = () => {
           </form>
         </>
       )}
-    </>
+    </Layout>
   );
 };
 

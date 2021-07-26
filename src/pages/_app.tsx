@@ -45,9 +45,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </Head>
         <GlobalStyles />
         <Global styles={globalStyles} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </>
     </Provider>
   );

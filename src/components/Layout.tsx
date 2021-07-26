@@ -85,7 +85,7 @@ export function Layout({ children }: Props) {
         <>
           <Divider />
           <List>
-            <Link href='/'>
+            <Link href='/main'>
               <ListItem button key='トップページ'>
                 <ListItemIcon>
                   <HomeIcon />
