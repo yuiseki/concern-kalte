@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useLocalStorageValue = (
   key: string,
-  defaultValue: string | number = 'null'
+  defaultValue: string | number = undefined
 ) => {
   const [storedValue, setValue] = useState<string | number>(defaultValue);
 
@@ -25,7 +25,13 @@ export const useLocalStorageValue = (
 
   useEffect(() => {
     const storageItem = localStorage.getItem(key);
-    if (storageItem === 'null' || storageItem === 'undefined') {
+    console.log(key, storageItem, defaultValue);
+    if (
+      storageItem === null ||
+      storageItem === 'null' ||
+      storageItem === undefined ||
+      storageItem === 'undefined'
+    ) {
       setValue(defaultValue);
     } else {
       setValue(storageItem);

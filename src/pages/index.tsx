@@ -102,7 +102,7 @@ const ResidentialAreaStateFormControl: React.VFC = () => {
         label='都道府県'
         id={name}
         name={name}
-        value={value}
+        value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
@@ -133,7 +133,7 @@ const ResidentialAreaCityFormControl: React.VFC = () => {
         label='市区町村'
         id={name}
         name={name}
-        value={value}
+        value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
@@ -188,7 +188,7 @@ const BirthYearFormControl: React.VFC = () => {
         label='生まれた年'
         id={name}
         name={name}
-        value={value}
+        value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
@@ -221,7 +221,7 @@ const GenderFormControl: React.VFC = () => {
         label='性別'
         id={name}
         name={name}
-        value={value}
+        value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
