@@ -25,6 +25,7 @@ export const useLocalStorageValue = (
 
   useEffect(() => {
     const storageItem = localStorage.getItem(key);
+    // eslint-disable-next-line no-console
     console.log(key, storageItem, defaultValue);
     if (
       storageItem === null ||
