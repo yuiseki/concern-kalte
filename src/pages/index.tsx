@@ -370,6 +370,7 @@ const SolutionList: React.VFC = () => {
           return s;
         }
         if (birthYear) {
+          // @ts-ignore
           const age = new Date().getFullYear() - parseInt(birthYear);
           if (s.maxAge && s.maxAge > age) {
             return s;
