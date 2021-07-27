@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 export const useLocalStorageValue = (
   key: string,
-  defaultValue: string | number = undefined
+  defaultValue: string = undefined
 ) => {
-  const [storedValue, setValue] = useState<string | number>(defaultValue);
+  const [storedValue, setValue] = useState<string>(defaultValue);
 
   const setLocalItem = () => {
     /** local storage update is not that fast */

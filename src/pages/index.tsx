@@ -251,10 +251,10 @@ const GenderFormControl: React.VFC = () => {
 
 const PersonalYearlyIncome: React.VFC = () => {
   const name = 'personalYearlyIncome';
-  const [value, setValue] = useLocalStorageValue(name, 0);
+  const [value, setValue] = useLocalStorageValue(name, '0');
 
   // @ts-ignore
-  const [defaultValue, setDefaultValue] = useState(parseInt(value));
+  const [defaultValue, setDefaultValue] = useState<string>(value);
 
   const valueLabelFormat = (value) => {
     return `${value} 万円`;
@@ -276,7 +276,7 @@ const PersonalYearlyIncome: React.VFC = () => {
           marks
           min={0}
           max={1000}
-          value={defaultValue}
+          value={parseInt(defaultValue)}
           onChange={(e, val) => {
             // @ts-ignore
             setValue(val);
@@ -304,14 +304,23 @@ const MyDrawer: React.VFC = () => {
           <ResidentialAreaCityFormControl />
         </ListItem>
         <Divider />
+        <div tw='ml-4'>
+          <Typography variant='h6' noWrap>
+            個人属性
+          </Typography>
+        </div>
         <ListItem>
           <BirthYearFormControl />
         </ListItem>
-        <Divider />
         <ListItem>
           <GenderFormControl />
         </ListItem>
         <Divider />
+        <div tw='ml-4'>
+          <Typography variant='h6' noWrap>
+            収入
+          </Typography>
+        </div>
         <ListItem>
           <PersonalYearlyIncome />
         </ListItem>
@@ -328,7 +337,7 @@ const SolutionList: React.VFC = () => {
   const [gender] = useLocalStorageValue('gender');
   const [personalYearlyIncome] = useLocalStorageValue(
     'personalYearlyIncome',
-    0
+    '0'
   );
   const { data: allSolutions } = useSWR('/data/solutions.json');
 
@@ -390,10 +399,12 @@ const SolutionList: React.VFC = () => {
         if (!s.maxPersonalYearlyIncome && !s.minPersonalYearlyIncome) {
           return s;
         }
-        if (typeof personalYearlyIncome !== 'number') {
+        // @ts-ignore
+        const personalYearlyIncomeInt = parseInt(personalYearlyIncome);
+        if (typeof personalYearlyIncomeInt !== 'number') {
           return s;
         }
-        if (personalYearlyIncome <= s.maxPersonalYearlyIncome) {
+        if (personalYearlyIncomeInt <= s.maxPersonalYearlyIncome) {
           return s;
         }
       });
