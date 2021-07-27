@@ -345,16 +345,13 @@ const SolutionList: React.VFC = () => {
 
   useEffect(() => {
     if (!allSolutions) return;
-    // eslint-disable-next-line no-console
-    console.log('SolutionList state: ', areaState);
-    // eslint-disable-next-line no-console
-    console.log('SolutionList city: ', areaCity);
-    // eslint-disable-next-line no-console
-    console.log('SolutionList personal income: ', personalYearlyIncome);
     const filteredSolutions = allSolutions
       .filter((s) => {
         // 都道府県
         if (!areaState || areaState === 'null') {
+          return s;
+        }
+        if (!s.areaState) {
           return s;
         }
         if (s.areaState === areaState) {
@@ -364,6 +361,9 @@ const SolutionList: React.VFC = () => {
       .filter((s) => {
         // 市区町村
         if (!areaCity || areaCity === 'null') {
+          return s;
+        }
+        if (!s.areaCity) {
           return s;
         }
         if (s.areaCity === areaCity) {
@@ -387,10 +387,14 @@ const SolutionList: React.VFC = () => {
         }
       })
       .filter((s) => {
-        if (!gender || gender !== 'null') {
+        // 性別
+        if (!gender || gender === 'null') {
           return s;
         }
         if (!s.gender) {
+          return s;
+        }
+        if (gender === s.gender) {
           return s;
         }
       })

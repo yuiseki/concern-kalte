@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useLocalStorageValue = (
-  key: string,
-  defaultValue: string = undefined
-) => {
+export const useLocalStorageValue = (key: string, defaultValue = 'null') => {
   const [storedValue, setValue] = useState<string>(defaultValue);
 
   const setLocalItem = () => {
@@ -19,14 +16,14 @@ export const useLocalStorageValue = (
 
   const setStoredValue = (value) => {
     // eslint-disable-next-line no-console
-    console.log('save', key, value);
+    console.log('useLocalStorageValue setItem', key, value);
     localStorage.setItem(key, value);
   };
 
   useEffect(() => {
     const storageItem = localStorage.getItem(key);
     // eslint-disable-next-line no-console
-    console.log(key, storageItem, defaultValue);
+    console.log('useLocalStorageValue getItem', key, storageItem, defaultValue);
     if (
       storageItem === null ||
       storageItem === 'null' ||
