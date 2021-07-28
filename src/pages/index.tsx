@@ -27,7 +27,7 @@ import {
   ResidentialAreaRGeoFormControl,
   ResidentialAreaStateFormControl,
   ResidentialHouseTypeFormControl,
-} from '~/components/FormControls/ResidentialArea';
+} from '~/components/FormControls/Residential';
 import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
 import { GenderFormControl } from '~/components/FormControls/Gender';
 import { NotMarriedControl } from '~/components/FormControls/Family';
