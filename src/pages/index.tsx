@@ -1,10 +1,9 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import clsx from 'clsx';
 import 'twin.macro';
 import { useLocalStorageValue } from '~/hooks/useLocalStorage';
 import useSWR from 'swr';
-import { openReverseGeocoder } from '@geolonia/open-reverse-geocoder';
 import {
   Container,
   createStyles,
@@ -19,33 +18,22 @@ import {
   AppBar,
   Typography,
   Drawer,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Slider,
-  Box,
-  CardContent,
-  Card,
-  CardActions,
-  Button,
-  CardHeader,
-  Link,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  TextField,
-  FormControlLabel,
-  Checkbox,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import HomeIcon from '@material-ui/icons/Home';
-import MailIcon from '@material-ui/icons/Mail';
-import PhoneIcon from '@material-ui/icons/Phone';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { useCallback } from 'react';
+import {
+  ResidentialAreaCityFormControl,
+  ResidentialAreaRGeoFormControl,
+  ResidentialAreaStateFormControl,
+} from '~/components/FormControls/ResidentalArea';
+import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
+import { GenderFormControl } from '~/components/FormControls/Gender';
+import { NotMarriedControl } from '~/components/FormControls/Famiry';
+import { ParentingControl } from '~/components/FormControls/Parenting';
+import { JobsFormControl } from '~/components/FormControls/Jobs';
+import { PersonalYearlyIncomeControl } from '~/components/FormControls/Income';
+import { SolutionCard } from '~/components/Solution';
 
 const drawerWidth = 240;
 
@@ -108,231 +96,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const ResidentialAreaRGeoFormControl: React.VFC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [state, setState] = useLocalStorageValue('area-state');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [city, setCity] = useLocalStorageValue('area-city');
-
-  const getCurrentPosition = useCallback(() => {
-    const success = async (position) => {
-      const coords = position.coords;
-      const result = await openReverseGeocoder([
-        coords.longitude,
-        coords.latitude,
-      ]);
-      // @ts-ignore
-      setState(result.prefecture);
-      // @ts-ignore
-      setCity(result.city);
-    };
-    navigator.geolocation.getCurrentPosition(success);
-  }, [setState, setCity]);
-
-  return (
-    <FormControl variant='outlined'>
-      <Button
-        variant='contained'
-        color='secondary'
-        onClick={getCurrentPosition}
-      >
-        居住地を取得
-      </Button>
-    </FormControl>
-  );
-};
-
-const ResidentialAreaStateFormControl: React.VFC = () => {
-  const name = 'area-state';
-  const [value, setValue] = useLocalStorageValue(name);
-
-  return (
-    <FormControl variant='outlined'>
-      <TextField
-        type='text'
-        id={name}
-        name={name}
-        label='都道府県'
-        variant='outlined'
-        placeholder='東京都'
-        value={String(value)}
-        onChange={(e) => {
-          // @ts-ignore
-          setValue(e.target.value);
-        }}
-      />
-    </FormControl>
-  );
-};
-
-const ResidentialAreaCityFormControl: React.VFC = () => {
-  const name = 'area-city';
-  const [value, setValue] = useLocalStorageValue(name);
-
-  return (
-    <FormControl variant='outlined'>
-      <TextField
-        type='text'
-        id={name}
-        name={name}
-        label='市区町村'
-        variant='outlined'
-        placeholder='台東区'
-        value={String(value)}
-        onChange={(e) => {
-          // @ts-ignore
-          setValue(e.target.value);
-        }}
-      />
-    </FormControl>
-  );
-};
-
-const BirthYearFormControl: React.VFC = () => {
-  const name = 'birth-year';
-  const [value, setValue] = useLocalStorageValue(name);
-
-  return (
-    <FormControl variant='outlined'>
-      <InputLabel id='input-label-birth-year'>生まれた年</InputLabel>
-      <Select
-        labelId='input-label-birth-year'
-        label='生まれた年'
-        id={name}
-        name={name}
-        value={String(value)}
-        onChange={(e) => {
-          // @ts-ignore
-          setValue(e.target.value);
-        }}
-      >
-        <MenuItem value='null'>未回答</MenuItem>
-        {[...Array(100).keys()]
-          .map((i) => 2022 - i)
-          .map((year) => {
-            return (
-              <MenuItem key={year} value={year}>
-                {year}年
-              </MenuItem>
-            );
-          })}
-      </Select>
-    </FormControl>
-  );
-};
-
-const GenderFormControl: React.VFC = () => {
-  const name = 'gender';
-  const [value, setValue] = useLocalStorageValue(name);
-
-  return (
-    <FormControl variant='outlined'>
-      <InputLabel id='input-label-gender'>性別</InputLabel>
-      <Select
-        labelId='input-label-gender'
-        label='性別'
-        id={name}
-        name={name}
-        value={String(value)}
-        onChange={(e) => {
-          // @ts-ignore
-          setValue(e.target.value);
-        }}
-      >
-        <MenuItem value='null'>未回答</MenuItem>
-        <MenuItem value='male'>男性</MenuItem>
-        <MenuItem value='female'>女性</MenuItem>
-        <MenuItem value='other'>その他</MenuItem>
-      </Select>
-    </FormControl>
-  );
-};
-
-const NotMarriedControl: React.VFC = () => {
-  const name = 'not-married';
-  const [value, setValue] = useLocalStorageValue(name, 'false');
-  return (
-    <FormControl variant='outlined'>
-      <FormControlLabel
-        label='独身'
-        control={
-          <Checkbox
-            name={name}
-            checked={value === 'true'}
-            onChange={(e) => {
-              // @ts-ignore
-              setValue(String(e.target.checked));
-            }}
-          />
-        }
-      />
-    </FormControl>
-  );
-};
-
-const ParentingControl: React.VFC = () => {
-  const name = 'parenting';
-  const [value, setValue] = useLocalStorageValue(name, 'false');
-  return (
-    <FormControl variant='outlined'>
-      <FormControlLabel
-        label='子育て中'
-        control={
-          <Checkbox
-            name={name}
-            checked={value === 'true'}
-            onChange={(e) => {
-              // @ts-ignore
-              setValue(String(e.target.checked));
-            }}
-          />
-        }
-      />
-    </FormControl>
-  );
-};
-
-const PersonalYearlyIncomeControl: React.VFC = () => {
-  const name = 'personal-yearly-income';
-  const [value, setValue] = useLocalStorageValue(name, '0');
-
-  // @ts-ignore
-  const [defaultValue, setDefaultValue] = useState<string>(value);
-
-  const valueLabelFormat = (value) => {
-    if (value === null) {
-      value = 0;
-    }
-    return `${value} 万円`;
-  };
-
-  useEffect(() => {
-    // @ts-ignore
-    setDefaultValue(parseInt(value));
-  }, [value]);
-
-  return (
-    <FormControl variant='outlined'>
-      <Typography id='input-slider' gutterBottom>
-        個人年収：{valueLabelFormat(value)}
-      </Typography>
-      <Box sx={{ width: 200 }}>
-        <Slider
-          step={50}
-          marks
-          min={0}
-          max={1000}
-          value={parseInt(defaultValue)}
-          onChange={(e, val) => {
-            // @ts-ignore
-            setValue(val);
-          }}
-        />
-      </Box>
-    </FormControl>
-  );
-};
-
 const MyDrawer: React.VFC = () => {
   return (
     <div>
@@ -364,18 +127,25 @@ const MyDrawer: React.VFC = () => {
         <ListItem>
           <GenderFormControl />
         </ListItem>
-        <ListItem>
-          <NotMarriedControl />
-        </ListItem>
-        <ListItem>
-          <ParentingControl />
-        </ListItem>
         <Divider />
         <div tw='ml-4'>
           <Typography variant='h6' noWrap>
-            収入
+            家族構成
           </Typography>
         </div>
+        <ListItem>
+          <NotMarriedControl />
+        </ListItem>
+        <ParentingControl />
+        <Divider />
+        <div tw='ml-4'>
+          <Typography variant='h6' noWrap>
+            職業と収入
+          </Typography>
+        </div>
+        <ListItem>
+          <JobsFormControl />
+        </ListItem>
         <ListItem>
           <PersonalYearlyIncomeControl />
         </ListItem>
@@ -482,68 +252,7 @@ const SolutionList: React.VFC = () => {
       <h1 tw='text-2xl'>{solutions.length}件</h1>
       <div tw='my-4'>
         {solutions.map((s) => {
-          return (
-            <Card key={s.id} tw='my-5'>
-              <CardHeader title={s.id} />
-              <CardContent>
-                <List>
-                  <ListItem>
-                    <p>
-                      対象地域：
-                      {s.areaState} {s.areaCity}
-                    </p>
-                  </ListItem>
-                  {s.org && (
-                    <ListItem>
-                      <p>組織：{s.org}</p>
-                    </ListItem>
-                  )}
-                  {s.address && (
-                    <ListItem>
-                      <p>住所：{s.address}</p>
-                      <Divider />
-                    </ListItem>
-                  )}
-                </List>
-                {s.about && (
-                  <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                      <Typography>概要</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>{s.about}</Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                )}
-              </CardContent>
-              <CardActions>
-                {s.url && (
-                  <Link href={s.url} target='_blank'>
-                    <Button>
-                      <HomeIcon />
-                      Webサイト
-                    </Button>
-                  </Link>
-                )}
-                {s.email && (
-                  <Link href={'mailto:' + s.email}>
-                    <Button>
-                      <MailIcon />
-                      Email
-                    </Button>
-                  </Link>
-                )}
-                {s.tel && (
-                  <Link href={'tel:' + s.tel}>
-                    <Button>
-                      <PhoneIcon />
-                      電話
-                    </Button>
-                  </Link>
-                )}
-              </CardActions>
-            </Card>
-          );
+          return <SolutionCard key={s.id} solution={s} />;
         })}
       </div>
     </>
