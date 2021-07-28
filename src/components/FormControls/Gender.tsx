@@ -1,6 +1,7 @@
 import React from 'react';
-import useLocalStorageValue from "~/hooks/useLocalStorage";
-import { FormControl, InputLabel, MenuItem, Select } from "@material-ui/core";
+import 'twin.macro';
+import useLocalStorageValue from '~/hooks/useLocalStorage';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 
 export const GenderFormControl: React.VFC = () => {
   const name = 'gender';

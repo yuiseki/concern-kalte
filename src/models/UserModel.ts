@@ -38,7 +38,11 @@ const schema = new mongoose.Schema(
     personalYearlyIncome: { type: String, default: null },
     email: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
-    team: { type: mongoose.SchemaTypes.ObjectId, ref: 'TeamModel', default: null },
+    team: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'TeamModel',
+      default: null,
+    },
   },
   { timestamps: true }
 );

@@ -1,5 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import 'twin.macro';
 import { useLocalStorageValue } from '~/hooks/useLocalStorage';
@@ -27,10 +27,10 @@ import {
   ResidentialAreaRGeoFormControl,
   ResidentialAreaStateFormControl,
   ResidentialHouseTypeFormControl,
-} from '~/components/FormControls/ResidentalArea';
+} from '~/components/FormControls/ResidentialArea';
 import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
 import { GenderFormControl } from '~/components/FormControls/Gender';
-import { NotMarriedControl } from '~/components/FormControls/Famiry';
+import { NotMarriedControl } from '~/components/FormControls/Family';
 import { ParentingControl } from '~/components/FormControls/Parenting';
 import { JobsFormControl } from '~/components/FormControls/Jobs';
 import { PersonalYearlyIncomeControl } from '~/components/FormControls/Income';

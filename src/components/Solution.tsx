@@ -1,4 +1,5 @@
 import React from 'react';
+import 'twin.macro';
 import {
   Accordion,
   AccordionDetails,
@@ -24,7 +25,7 @@ export const SolutionCard: React.VFC<{ solution: any }> = ({
   solution: any;
 }) => {
   return (
-    <Card key={solution.id} tw='my-5'>
+    <Card key={solution.id} tw='my-5' elevation={2}>
       <CardHeader title={solution.id} />
       <CardContent>
         <List>

@@ -1,7 +1,7 @@
-import * as mockingoose from 'mockingoose'
+import * as mockingoose from 'mockingoose';
 import { SolutionModel } from './SolutionModel';
-import { TeamModel } from './TeamModel'
-import { UserModel } from './UserModel'
+import { TeamModel } from './TeamModel';
+import { UserModel } from './UserModel';
 
 describe('TeamModel', () => {
   describe('save', () => {

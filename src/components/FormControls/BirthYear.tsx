@@ -1,6 +1,13 @@
 import React from 'react';
+import 'twin.macro';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
-import { FormControl, InputLabel, MenuItem, Select, Typography } from '@material-ui/core';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+} from '@material-ui/core';
 
 export const BirthYearFormControl: React.VFC = () => {
   const name = 'birth-year';

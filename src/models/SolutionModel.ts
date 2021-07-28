@@ -14,4 +14,5 @@ const schema = new mongoose.Schema(
 );
 
 export const SolutionModel =
-  mongoose.models.SolutionModel || mongoose.model<ISolutionModel>('SolutionModel', schema);
+  mongoose.models.SolutionModel ||
+  mongoose.model<ISolutionModel>('SolutionModel', schema);

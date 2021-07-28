@@ -1,4 +1,5 @@
 import React from 'react';
+import 'twin.macro';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 

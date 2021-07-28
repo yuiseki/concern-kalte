@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'twin.macro';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
 import { Box, FormControl, Slider, Typography } from '@material-ui/core';
 

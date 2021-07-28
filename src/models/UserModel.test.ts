@@ -27,18 +27,18 @@ describe('UserModel', () => {
     });
     it('TeamModelを追加できること', async () => {
       const team1 = new TeamModel({
-        name: 'team1'
-      })
+        name: 'team1',
+      });
       const user1 = new UserModel({
         name: 'user1',
         email: 'example@example.com',
         password: 'test',
         team: team1,
-      })
-      mockingoose(UserModel).toReturn(null, 'save')
-      const user = await user1.save()
-      expect(user.team.name).toMatch('team1')
-    })
+      });
+      mockingoose(UserModel).toReturn(null, 'save');
+      const user = await user1.save();
+      expect(user.team.name).toMatch('team1');
+    });
   });
   describe('validation', () => {
     it('emailは必須', async () => {
