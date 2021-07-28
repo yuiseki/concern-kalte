@@ -26,6 +26,7 @@ import {
   ResidentialAreaCityFormControl,
   ResidentialAreaRGeoFormControl,
   ResidentialAreaStateFormControl,
+  ResidentialHouseTypeFormControl,
 } from '~/components/FormControls/ResidentalArea';
 import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
 import { GenderFormControl } from '~/components/FormControls/Gender';
@@ -114,6 +115,9 @@ const MyDrawer: React.VFC = () => {
         </ListItem>
         <ListItem>
           <ResidentialAreaCityFormControl />
+        </ListItem>
+        <ListItem>
+          <ResidentialHouseTypeFormControl />
         </ListItem>
         <Divider />
         <div tw='ml-4'>

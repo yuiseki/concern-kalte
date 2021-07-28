@@ -1,7 +1,14 @@
 import React, { useCallback } from 'react';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
 import { openReverseGeocoder } from '@geolonia/open-reverse-geocoder';
-import { Button, FormControl, TextField } from '@material-ui/core';
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@material-ui/core';
 
 export const ResidentialAreaRGeoFormControl: React.VFC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -79,6 +86,39 @@ export const ResidentialAreaCityFormControl: React.VFC = () => {
           setValue(e.target.value);
         }}
       />
+    </FormControl>
+  );
+};
+
+export const ResidentialHouseTypeFormControl: React.VFC = () => {
+  const name = 'house-type';
+  const [value, setValue] = useLocalStorageValue(name);
+
+  return (
+    <FormControl variant='outlined'>
+      <InputLabel id='input-label-house-type'>住居</InputLabel>
+      <Select
+        labelId='input-label-house-type'
+        label='住居'
+        id={name}
+        name={name}
+        value={String(value)}
+        onChange={(e) => {
+          // @ts-ignore
+          setValue(e.target.value);
+        }}
+      >
+        <MenuItem value='null'>未回答</MenuItem>
+        <MenuItem value='rent-house'>賃貸</MenuItem>
+        <MenuItem value='public-house'>公営住宅</MenuItem>
+        <MenuItem value='owned-house'>持ち家</MenuItem>
+        <MenuItem value='parent-house'>実家</MenuItem>
+        <MenuItem value='nothing'>住む場所がない</MenuItem>
+        <MenuItem value='net-cafe'>ネットカフェ</MenuItem>
+        <MenuItem value='homeless-shelter'>緊急一時宿泊施設</MenuItem>
+        <MenuItem value='dv-shelter'>DVシェルター</MenuItem>
+        <MenuItem value='other'>その他</MenuItem>
+      </Select>
     </FormControl>
   );
 };
