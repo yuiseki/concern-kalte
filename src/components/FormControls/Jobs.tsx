@@ -40,6 +40,7 @@ export const JobsFormControl: React.VFC = () => {
         <MenuItem value='self-employed'>フリーランス個人事業主</MenuItem>
         <MenuItem value='president'>社長</MenuItem>
         <MenuItem value='board-member'>会社役員</MenuItem>
+        <MenuItem value='other'>その他</MenuItem>
       </Select>
     </FormControl>
   );

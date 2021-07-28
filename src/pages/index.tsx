@@ -164,6 +164,8 @@ const SolutionList: React.VFC = () => {
   const [areaCity] = useLocalStorageValue('area-city');
   const [birthYear] = useLocalStorageValue('birth-year');
   const [gender] = useLocalStorageValue('gender');
+  const [notMarried] = useLocalStorageValue('not-married');
+  const [parenting] = useLocalStorageValue('parenting');
   const [personalYearlyIncome] = useLocalStorageValue(
     'personal-yearly-income',
     '0'
@@ -228,6 +230,21 @@ const SolutionList: React.VFC = () => {
         }
       })
       .filter((s) => {
+        // ひとり親
+        if (!notMarried || notMarried === 'null') {
+          return s;
+        }
+        if (!parenting || parenting === 'null') {
+          return s;
+        }
+        if (!s.singleParent) {
+          return s;
+        }
+        if (s.singleParent && notMarried === 'true' && parenting === 'true') {
+          return s;
+        }
+      })
+      .filter((s) => {
         // 個人年収
         if (!s.maxPersonalYearlyIncome && !s.minPersonalYearlyIncome) {
           return s;
@@ -248,6 +265,8 @@ const SolutionList: React.VFC = () => {
     areaCity,
     birthYear,
     gender,
+    notMarried,
+    parenting,
     personalYearlyIncome,
   ]);
 

@@ -15,6 +15,7 @@
     "minChildAge": 0,
     "maxChildAge": 12,
     "gender": null,
+    "singleParent": true,
     "maxPersonalYearlyIncome": 400
   },
   {
@@ -33,6 +34,7 @@
     "minChildAge": null,
     "maxChildAge": null,
     "gender": "female",
+    "singleParent": true,
     "maxPersonalYearlyIncome": null
   },
   {
@@ -41,7 +43,8 @@
     "about": "養育費の支払いに遅延があった際に、養育費を保証するサービスです",
     "org": "株式会社Casa",
     "address": "東京都新宿区西新宿2-6-1 新宿住友ビル30F",
-    "url": "https://www.casa-inc.co.jp/lp-youikuhi/"
+    "url": "https://www.casa-inc.co.jp/lp-youikuhi/",
+    "singleParent": true
   },
   {
     "id": "東京都 千代田区 生活保護",
