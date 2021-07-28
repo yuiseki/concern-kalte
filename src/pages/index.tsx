@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import 'twin.macro';
 import { useLocalStorageValue } from '~/hooks/useLocalStorage';
 import useSWR from 'swr';
+import { openReverseGeocoder } from '@geolonia/open-reverse-geocoder';
 import {
   Container,
   createStyles,
@@ -33,6 +34,9 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  TextField,
+  FormControlLabel,
+  Checkbox,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -41,6 +45,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useCallback } from 'react';
 
 const drawerWidth = 240;
 
@@ -103,94 +108,88 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const ResidentialAreaRGeoFormControl: React.VFC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [state, setState] = useLocalStorageValue('area-state');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [city, setCity] = useLocalStorageValue('area-city');
+
+  const getCurrentPosition = useCallback(() => {
+    const success = async (position) => {
+      const coords = position.coords;
+      const result = await openReverseGeocoder([
+        coords.longitude,
+        coords.latitude,
+      ]);
+      // @ts-ignore
+      setState(result.prefecture);
+      // @ts-ignore
+      setCity(result.city);
+    };
+    navigator.geolocation.getCurrentPosition(success);
+  }, [setState, setCity]);
+
+  return (
+    <FormControl variant='outlined'>
+      <Button
+        variant='contained'
+        color='secondary'
+        onClick={getCurrentPosition}
+      >
+        居住地を取得
+      </Button>
+    </FormControl>
+  );
+};
+
 const ResidentialAreaStateFormControl: React.VFC = () => {
-  const name = 'areaState';
+  const name = 'area-state';
   const [value, setValue] = useLocalStorageValue(name);
 
   return (
     <FormControl variant='outlined'>
-      <InputLabel id='input-label-area-state'>都道府県</InputLabel>
-      <Select
-        labelId='input-label-area-state'
-        label='都道府県'
+      <TextField
+        type='text'
         id={name}
         name={name}
+        label='都道府県'
+        variant='outlined'
+        placeholder='東京都'
         value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
         }}
-      >
-        <MenuItem value='null'>未回答</MenuItem>
-        {['東京都'].map((area) => {
-          return (
-            <MenuItem key={area} value={area}>
-              {area}
-            </MenuItem>
-          );
-        })}
-      </Select>
+      />
     </FormControl>
   );
 };
 
 const ResidentialAreaCityFormControl: React.VFC = () => {
-  const name = 'areaCity';
+  const name = 'area-city';
   const [value, setValue] = useLocalStorageValue(name);
 
   return (
     <FormControl variant='outlined'>
-      <InputLabel id='input-label-area-city'>市区町村</InputLabel>
-      <Select
-        labelId='input-label-area-city'
-        label='市区町村'
+      <TextField
+        type='text'
         id={name}
         name={name}
+        label='市区町村'
+        variant='outlined'
+        placeholder='台東区'
         value={String(value)}
         onChange={(e) => {
           // @ts-ignore
           setValue(e.target.value);
         }}
-      >
-        <MenuItem value='null'>未回答</MenuItem>
-        {[
-          '千代田区',
-          '中央区',
-          '港区',
-          '新宿区',
-          '文京区',
-          '台東区',
-          '墨田区',
-          '江東区',
-          '品川区',
-          '目黒区',
-          '大田区',
-          '世田谷区',
-          '渋谷区',
-          '中野区',
-          '杉並区',
-          '豊島区',
-          '北区',
-          '荒川区',
-          '板橋区',
-          '練馬区',
-          '足立区',
-          '葛飾区',
-          '江戸川区',
-        ].map((area) => {
-          return (
-            <MenuItem key={area} value={area}>
-              {area}
-            </MenuItem>
-          );
-        })}
-      </Select>
+      />
     </FormControl>
   );
 };
 
 const BirthYearFormControl: React.VFC = () => {
-  const name = 'birthYear';
+  const name = 'birth-year';
   const [value, setValue] = useLocalStorageValue(name);
 
   return (
@@ -249,14 +248,61 @@ const GenderFormControl: React.VFC = () => {
   );
 };
 
-const PersonalYearlyIncome: React.VFC = () => {
-  const name = 'personalYearlyIncome';
+const NotMarriedControl: React.VFC = () => {
+  const name = 'not-married';
+  const [value, setValue] = useLocalStorageValue(name, 'false');
+  return (
+    <FormControl variant='outlined'>
+      <FormControlLabel
+        label='独身'
+        control={
+          <Checkbox
+            name={name}
+            checked={value === 'true'}
+            onChange={(e) => {
+              // @ts-ignore
+              setValue(String(e.target.checked));
+            }}
+          />
+        }
+      />
+    </FormControl>
+  );
+};
+
+const ParentingControl: React.VFC = () => {
+  const name = 'parenting';
+  const [value, setValue] = useLocalStorageValue(name, 'false');
+  return (
+    <FormControl variant='outlined'>
+      <FormControlLabel
+        label='子育て中'
+        control={
+          <Checkbox
+            name={name}
+            checked={value === 'true'}
+            onChange={(e) => {
+              // @ts-ignore
+              setValue(String(e.target.checked));
+            }}
+          />
+        }
+      />
+    </FormControl>
+  );
+};
+
+const PersonalYearlyIncomeControl: React.VFC = () => {
+  const name = 'personal-yearly-income';
   const [value, setValue] = useLocalStorageValue(name, '0');
 
   // @ts-ignore
   const [defaultValue, setDefaultValue] = useState<string>(value);
 
   const valueLabelFormat = (value) => {
+    if (value === null) {
+      value = 0;
+    }
     return `${value} 万円`;
   };
 
@@ -298,6 +344,9 @@ const MyDrawer: React.VFC = () => {
           </Typography>
         </div>
         <ListItem>
+          <ResidentialAreaRGeoFormControl />
+        </ListItem>
+        <ListItem>
           <ResidentialAreaStateFormControl />
         </ListItem>
         <ListItem>
@@ -315,6 +364,12 @@ const MyDrawer: React.VFC = () => {
         <ListItem>
           <GenderFormControl />
         </ListItem>
+        <ListItem>
+          <NotMarriedControl />
+        </ListItem>
+        <ListItem>
+          <ParentingControl />
+        </ListItem>
         <Divider />
         <div tw='ml-4'>
           <Typography variant='h6' noWrap>
@@ -322,7 +377,7 @@ const MyDrawer: React.VFC = () => {
           </Typography>
         </div>
         <ListItem>
-          <PersonalYearlyIncome />
+          <PersonalYearlyIncomeControl />
         </ListItem>
         <Divider />
       </List>
@@ -331,12 +386,12 @@ const MyDrawer: React.VFC = () => {
 };
 
 const SolutionList: React.VFC = () => {
-  const [areaState] = useLocalStorageValue('areaState');
-  const [areaCity] = useLocalStorageValue('areaCity');
-  const [birthYear] = useLocalStorageValue('birthYear');
+  const [areaState] = useLocalStorageValue('area-state');
+  const [areaCity] = useLocalStorageValue('area-city');
+  const [birthYear] = useLocalStorageValue('birth-year');
   const [gender] = useLocalStorageValue('gender');
   const [personalYearlyIncome] = useLocalStorageValue(
-    'personalYearlyIncome',
+    'personal-yearly-income',
     '0'
   );
   const { data: allSolutions } = useSWR('/data/solutions.json');
