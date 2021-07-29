@@ -16,7 +16,8 @@
     "maxChildAge": 12,
     "gender": null,
     "singleParent": true,
-    "maxPersonalYearlyIncome": 400
+    "maxPersonalYearlyIncome": 400,
+    "rating": 4.5
   },
   {
     "id": "日本シングルマザー支援協会 MES（ミーズ）個別相談",
@@ -27,7 +28,8 @@
     "tel": "045-534-8849",
     "url": "https://xn--qckmb1noc2bzdv147ah7h.com/consultation",
     "gender": "female",
-    "singleParent": true
+    "singleParent": true,
+    "rating": 3.1
   },
   {
     "id": "しんぐるまざあず・ふぉーらむ シングルマザーキャリア支援プログラム「未来への扉」",
@@ -39,7 +41,8 @@
     "email": "office@single-mama.com",
     "url": "https://www.single-mama.com/miraihenotobira/",
     "gender": "female",
-    "singleParent": true
+    "singleParent": true,
+    "rating": 4.0
   },
   {
     "id": "株式会社リンクリンク 愛知のシングルマザー就職支援無料コンシェルジュ",
@@ -51,7 +54,8 @@
     "url": "https://job.parklink.net/%e7%84%a1%e6%96%99%e3%82%b3%e3%83%b3%e3%82%b7%e3%82%a7%e3%83%ab%e3%82%b8%e3%83%a5-2",
     "areaState": "愛知県",
     "gender": "female",
-    "singleParent": true
+    "singleParent": true,
+    "rating": 4.0
   },
   {
     "id": "株式会社Casa 養育費保証プラス",
@@ -60,7 +64,8 @@
     "org": "株式会社Casa",
     "address": "東京都新宿区西新宿2-6-1 新宿住友ビル30F",
     "url": "https://www.casa-inc.co.jp/lp-youikuhi/",
-    "singleParent": true
+    "singleParent": true,
+    "rating": 2.5
   },
   {
     "id": "東京都 千代田区 生活保護",
@@ -76,7 +81,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 中央区 生活保護",
@@ -92,7 +98,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 港区 生活保護",
@@ -108,7 +115,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 新宿区 生活保護",
@@ -124,7 +132,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 文京区 生活保護",
@@ -140,7 +149,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 台東区 生活保護",
@@ -156,7 +166,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 墨田区 生活保護",
@@ -172,7 +183,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 江東区 生活保護",
@@ -188,7 +200,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 品川区 生活保護",
@@ -204,7 +217,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 目黒区 生活保護",
@@ -220,7 +234,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 大田区 生活保護",
@@ -236,7 +251,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 世田谷区 生活保護",
@@ -252,7 +268,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 渋谷区 生活保護",
@@ -267,7 +284,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 中野区 生活保護",
@@ -275,7 +293,6 @@
     "org": "中野区役所 健康福祉部 生活援護課",
     "address": "中野区中野四丁目8番1号",
     "tel": "03-3228-8926",
-    "email": null,
     "email": "seikatuengo＠city.tokyo-nakano.lg.jp",
     "url": "https://www.city.tokyo-nakano.lg.jp/dept/405000/index.html",
     "areaState": "東京都",
@@ -283,7 +300,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 杉並区 生活保護",
@@ -299,7 +317,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 豊島区 生活保護",
@@ -314,7 +333,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 北区 生活保護",
@@ -330,7 +350,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 荒川区 生活保護",
@@ -346,7 +367,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 板橋区 生活保護",
@@ -362,7 +384,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 練馬区 生活保護",
@@ -378,7 +401,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 足立区 生活保護",
@@ -394,7 +418,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 葛飾区 生活保護",
@@ -410,7 +435,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "東京都 江戸川区 生活保護",
@@ -426,7 +452,8 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   },
   {
     "id": "神奈川県 川崎市 生活保護",
@@ -436,6 +463,7 @@
     "minAge": null,
     "maxAge": null,
     "gender": null,
-    "maxPersonalYearlyIncome": 100
+    "maxPersonalYearlyIncome": 100,
+    "rating": 1
   }
 ]

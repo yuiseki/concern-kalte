@@ -42,6 +42,7 @@
     "@geolonia/open-reverse-geocoder": "^0.0.7",
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "mongoose": "^5.12.14",

@@ -9,6 +9,7 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  Divider,
   Link,
   List,
   ListItem,
@@ -18,6 +19,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Rating } from '@material-ui/lab';
 
 export const SolutionCard: React.VFC<{ solution: any }> = ({
   solution,
@@ -60,6 +62,8 @@ export const SolutionCard: React.VFC<{ solution: any }> = ({
         )}
       </CardContent>
       <CardActions>
+        <Rating name='rating' defaultValue={solution.rating} precision={0.5} />
+        <Divider />
         {solution.url && (
           <Link href={solution.url} target='_blank'>
             <Button>

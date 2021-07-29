@@ -257,6 +257,9 @@ const SolutionList: React.VFC = () => {
         if (personalYearlyIncomeInt <= s.maxPersonalYearlyIncome) {
           return s;
         }
+      })
+      .sort((a, b) => {
+        return b.rating - a.rating;
       });
     setSolutions(filteredSolutions);
   }, [
