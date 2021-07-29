@@ -33,8 +33,8 @@ export const JobsFormControl: React.VFC = () => {
         <MenuItem value='non-regular-employee'>非正規雇用（契約社員）</MenuItem>
         <MenuItem value='non-regular-employee'>非正規雇用（派遣社員）</MenuItem>
         <MenuItem value='non-regular-employee'>非正規雇用（臨時職員）</MenuItem>
-        <MenuItem value='non-regular-employee'>非正規雇用（臨時職員）</MenuItem>
         <MenuItem value='full-time-employee'>正社員</MenuItem>
+        <MenuItem value='full-time-employee'>公務員</MenuItem>
         <MenuItem value='self-employed'>自営業</MenuItem>
         <MenuItem value='self-employed'>個人事業主</MenuItem>
         <MenuItem value='self-employed'>フリーランス個人事業主</MenuItem>
