@@ -46,7 +46,7 @@ export const ResidentialAreaRGeoFormControl: React.VFC = () => {
 
 export const ResidentialAreaStateFormControl: React.VFC = () => {
   const name = 'area-state';
-  const [value, setValue] = useLocalStorageValue(name);
+  const [value, setValue] = useLocalStorageValue(name, '');
 
   return (
     <FormControl variant='outlined'>
@@ -69,7 +69,7 @@ export const ResidentialAreaStateFormControl: React.VFC = () => {
 
 export const ResidentialAreaCityFormControl: React.VFC = () => {
   const name = 'area-city';
-  const [value, setValue] = useLocalStorageValue(name);
+  const [value, setValue] = useLocalStorageValue(name, '');
 
   return (
     <FormControl variant='outlined'>
