@@ -6,10 +6,7 @@ import clsx from 'clsx';
 import {
   Container,
   createStyles,
-  Divider,
   IconButton,
-  List,
-  ListItem,
   makeStyles,
   useTheme,
   Theme,
