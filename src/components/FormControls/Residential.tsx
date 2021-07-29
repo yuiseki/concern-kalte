@@ -96,7 +96,7 @@ export const ResidentialHouseTypeFormControl: React.VFC = () => {
 
   return (
     <FormControl variant='outlined'>
-      <InputLabel id='input-label-house-type'>住居</InputLabel>
+      <InputLabel id='input-label-house-type'>居住形態</InputLabel>
       <Select
         labelId='input-label-house-type'
         label='住居'

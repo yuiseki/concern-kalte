@@ -1,6 +1,10 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import React, { ReactNode } from 'react';
+import 'twin.macro';
+import clsx from 'clsx';
+import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/client';
+import { useRouter } from 'next/dist/client/router';
 import {
   Container,
   createStyles,
@@ -16,16 +20,17 @@ import {
   Toolbar,
   AppBar,
   Typography,
-  Hidden,
   Drawer,
 } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import HomeIcon from '@material-ui/icons/Home';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
-import Link from 'next/link';
+import { SearchListItems } from './SearchListItems';
 
 const drawerWidth = 240;
 
@@ -34,73 +39,88 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
     },
-    drawer: {
-      [theme.breakpoints.up('sm')]: {
-        width: drawerWidth,
-        flexShrink: 0,
-      },
-    },
     appBar: {
-      [theme.breakpoints.up('sm')]: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-      },
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+    },
+    appBarShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
     menuButton: {
       marginRight: theme.spacing(2),
-      [theme.breakpoints.up('sm')]: {
-        display: 'none',
-      },
     },
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
+    hide: {
+      display: 'none',
+    },
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
     drawerPaper: {
       width: drawerWidth,
+    },
+    drawerHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: theme.spacing(0, 1),
+      // necessary for content to be below app bar
+      ...theme.mixins.toolbar,
+      justifyContent: 'flex-end',
     },
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      marginLeft: -drawerWidth,
+    },
+    contentShift: {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginLeft: 0,
     },
   })
 );
 
-type Props = {
-  children: ReactNode;
-};
-
-export function Layout({ children }: Props) {
+const MyDrawer: React.VFC = () => {
   const [session] = useSession();
-  const classes = useStyles();
-  const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
+  const router = useRouter();
+  return (
     <div>
-      <div className={classes.toolbar} />
+      <Divider />
+      <List>
+        <Link href='/'>
+          <ListItem button key='トップページ'>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary='トップページ' />
+          </ListItem>
+        </Link>
+        <Link href='/search'>
+          <ListItem button key='お助け制度検索'>
+            <ListItemIcon>
+              <FormatListNumberedIcon />
+            </ListItemIcon>
+            <ListItemText primary='お助け制度検索' />
+          </ListItem>
+        </Link>
+      </List>
       {session && (
         <>
           <Divider />
           <List>
-            <Link href='/main'>
-              <ListItem button key='トップページ'>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary='トップページ' />
-              </ListItem>
-            </Link>
-            <Link href='/kalte'>
-              <ListItem button key='生活お悩みカルテ'>
-                <ListItemIcon>
-                  <FormatListNumberedIcon />
-                </ListItemIcon>
-                <ListItemText primary='生活お悩みカルテ' />
-              </ListItem>
-            </Link>
             <Link href='/settings'>
               <ListItem button key='ユーザー設定'>
                 <ListItemIcon>
@@ -143,19 +163,40 @@ export function Layout({ children }: Props) {
           </ListItem>
         )}
       </List>
+      <Divider />
+      {router.pathname === '/search' && <SearchListItems />}
     </div>
   );
+};
+
+type Props = {
+  children: ReactNode;
+};
+
+export function Layout({ children }: Props) {
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(true);
+
+  const handleDrawerToggle = () => {
+    setOpen(!open);
+  };
 
   return (
     <Container className={classes.root}>
-      <AppBar position='fixed' className={classes.appBar}>
+      <AppBar
+        position='fixed'
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
         <Toolbar>
           <IconButton
             color='inherit'
             aria-label='open drawer'
             edge='start'
             onClick={handleDrawerToggle}
-            className={classes.menuButton}
+            className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
@@ -164,38 +205,32 @@ export function Layout({ children }: Props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label='mailbox folders'>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation='css'>
-          <Drawer
-            variant='temporary'
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true,
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation='css'>
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant='permanent'
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
+      <Drawer
+        className={classes.drawer}
+        variant='persistent'
+        anchor='left'
+        open={open}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerToggle}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </div>
+        <MyDrawer />
+      </Drawer>
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open,
+        })}
+      >
+        <div className={classes.drawerHeader} />
         {children}
       </main>
     </Container>
