@@ -9,11 +9,12 @@ import {
 } from '~/components/FormControls/Residential';
 import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
 import { GenderFormControl } from '~/components/FormControls/Gender';
-import { NotMarriedFormControl } from '~/components/FormControls/Family';
+import { MarriageStatusFormControl } from '~/components/FormControls/Family';
 import { ParentingFormControl } from '~/components/FormControls/Parenting';
 import { JobsFormControl } from '~/components/FormControls/Jobs';
 import { PersonalYearlyIncomeFormControl } from '~/components/FormControls/Income';
 import { SolutionTypeFormControl } from './FormControls/SolutionType';
+import { NursingFormControl } from './FormControls/Nursing';
 
 export const SearchListItems: React.VFC = () => {
   return (
@@ -76,9 +77,10 @@ export const SearchListItems: React.VFC = () => {
         </Typography>
       </div>
       <ListItem>
-        <NotMarriedFormControl />
+        <MarriageStatusFormControl />
       </ListItem>
       <ParentingFormControl />
+      <NursingFormControl />
       <Divider />
     </>
   );
