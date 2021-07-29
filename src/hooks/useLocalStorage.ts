@@ -8,7 +8,7 @@ export const useLocalStorageValue = (key: string, defaultValue = 'null') => {
     /** it makes sure that we are getting the new value  */
     setTimeout(() => {
       const value = localStorage.getItem(key);
-      if (value !== 'undefined') {
+      if (value && value !== 'undefined') {
         setValue(value);
       }
     }, 50);
