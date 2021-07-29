@@ -29,7 +29,7 @@ export const Page: React.VFC = () => {
           <b>
             <Link href='/auth/signin'>ログイン</Link>
           </b>
-          することで、お助け制度のレーティング、お悩み解決レシピの投稿ができます（開発中）。
+          することで、お助け制度のレビュー、お悩み解決レシピの投稿ができます（開発中）。
         </Typography>
       </p>
     </Layout>
