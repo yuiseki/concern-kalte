@@ -109,6 +109,7 @@ export const ResidentialHouseTypeFormControl: React.VFC = () => {
         }}
       >
         <MenuItem value='null'>未回答</MenuItem>
+        <MenuItem value='moving'>引っ越しを検討中</MenuItem>
         <MenuItem value='rent-house'>賃貸</MenuItem>
         <MenuItem value='public-house'>公営住宅</MenuItem>
         <MenuItem value='owned-house'>持ち家</MenuItem>
