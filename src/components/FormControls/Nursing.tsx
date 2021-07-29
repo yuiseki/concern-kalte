@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 
 export const NursingFormControl: React.VFC = () => {
-  const name = 'parenting';
+  const name = 'nursing';
   const [value, setValue] = useLocalStorageValue(name, 'false');
   return (
     <>

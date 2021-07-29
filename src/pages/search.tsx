@@ -4,7 +4,7 @@ import 'twin.macro';
 import useSWR from 'swr';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import { useLocalStorageValue } from '~/hooks/useLocalStorage';
-import { SolutionCard } from '~/components/Solution';
+import { SolutionCard } from '~/components/SolutionCard';
 import { Layout } from '~/components/Layout';
 
 const drawerWidth = 240;
