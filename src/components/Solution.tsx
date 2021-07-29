@@ -32,7 +32,9 @@ export const SolutionCard: React.VFC<{ solution: any }> = ({
           <ListItem>
             <p>
               対象地域：
-              {solution.areaState} {solution.areaCity}
+              {solution.areaState && solution.areaState}
+              {solution.areaCity && solution.areaCity}
+              {!solution.areaState && !solution.areaCity && '全国'}
             </p>
           </ListItem>
           {solution.org && (
