@@ -60,16 +60,6 @@ export const SearchListItems: React.VFC = () => {
       <Divider />
       <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
-          家族構成
-        </Typography>
-      </div>
-      <ListItem>
-        <NotMarriedFormControl />
-      </ListItem>
-      <ParentingFormControl />
-      <Divider />
-      <div tw='ml-4 my-2'>
-        <Typography variant='h6' noWrap>
           職業と収入
         </Typography>
       </div>
@@ -79,6 +69,16 @@ export const SearchListItems: React.VFC = () => {
       <ListItem>
         <PersonalYearlyIncomeFormControl />
       </ListItem>
+      <Divider />
+      <div tw='ml-4 my-2'>
+        <Typography variant='h6' noWrap>
+          家族構成
+        </Typography>
+      </div>
+      <ListItem>
+        <NotMarriedFormControl />
+      </ListItem>
+      <ParentingFormControl />
       <Divider />
     </>
   );
