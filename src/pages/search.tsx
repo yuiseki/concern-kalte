@@ -2,26 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import 'twin.macro';
 import useSWR from 'swr';
-import clsx from 'clsx';
-import {
-  Container,
-  createStyles,
-  IconButton,
-  makeStyles,
-  useTheme,
-  Theme,
-  Toolbar,
-  AppBar,
-  Typography,
-  Drawer,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import { useLocalStorageValue } from '~/hooks/useLocalStorage';
-
 import { SolutionCard } from '~/components/Solution';
-import { SearchListItems } from '~/components/SearchListItems';
 import { Layout } from '~/components/Layout';
 
 const drawerWidth = 240;
