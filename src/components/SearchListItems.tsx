@@ -12,9 +12,14 @@ import { GenderFormControl } from '~/components/FormControls/Gender';
 import { MarriageStatusFormControl } from '~/components/FormControls/Family';
 import { ParentingFormControl } from '~/components/FormControls/Parenting';
 import { JobsFormControl } from '~/components/FormControls/Jobs';
-import { PersonalYearlyIncomeFormControl } from '~/components/FormControls/Income';
+import {
+  HouseholdYearlyIncomeFormControl,
+  PersonalYearlyIncomeFormControl,
+} from '~/components/FormControls/Income';
 import { SolutionTypeFormControl } from './FormControls/SolutionType';
 import { NursingFormControl } from './FormControls/Nursing';
+import { HandicappedFormControl } from './FormControls/Handicapped';
+import { LiveWithParentsFormControl } from './FormControls/LiveWithParents';
 
 export const SearchListItems: React.VFC = () => {
   return (
@@ -25,6 +30,7 @@ export const SearchListItems: React.VFC = () => {
           制度絞り込み
         </Typography>
       </div>
+      <Divider />
       <ListItem>
         <SolutionTypeFormControl />
       </ListItem>
@@ -58,6 +64,7 @@ export const SearchListItems: React.VFC = () => {
       <ListItem>
         <GenderFormControl />
       </ListItem>
+      <HandicappedFormControl />
       <Divider />
       <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
@@ -70,6 +77,9 @@ export const SearchListItems: React.VFC = () => {
       <ListItem>
         <PersonalYearlyIncomeFormControl />
       </ListItem>
+      <ListItem>
+        <HouseholdYearlyIncomeFormControl />
+      </ListItem>
       <Divider />
       <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
@@ -79,6 +89,7 @@ export const SearchListItems: React.VFC = () => {
       <ListItem>
         <MarriageStatusFormControl />
       </ListItem>
+      <LiveWithParentsFormControl />
       <ParentingFormControl />
       <NursingFormControl />
       <Divider />
