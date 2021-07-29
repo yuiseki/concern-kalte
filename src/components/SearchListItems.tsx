@@ -9,11 +9,11 @@ import {
 } from '~/components/FormControls/Residential';
 import { BirthYearFormControl } from '~/components/FormControls/BirthYear';
 import { GenderFormControl } from '~/components/FormControls/Gender';
-import { NotMarriedControl } from '~/components/FormControls/Family';
-import { ParentingControl } from '~/components/FormControls/Parenting';
+import { NotMarriedFormControl } from '~/components/FormControls/Family';
+import { ParentingFormControl } from '~/components/FormControls/Parenting';
 import { JobsFormControl } from '~/components/FormControls/Jobs';
-import { PersonalYearlyIncomeControl } from '~/components/FormControls/Income';
-import { SolutionTypeControl } from './FormControls/SolutionType';
+import { PersonalYearlyIncomeFormControl } from '~/components/FormControls/Income';
+import { SolutionTypeFormControl } from './FormControls/SolutionType';
 
 export const SearchListItems: React.VFC = () => {
   return (
@@ -25,7 +25,7 @@ export const SearchListItems: React.VFC = () => {
         </Typography>
       </div>
       <ListItem>
-        <SolutionTypeControl />
+        <SolutionTypeFormControl />
       </ListItem>
       <Divider />
       <div tw='ml-4'>
@@ -64,9 +64,9 @@ export const SearchListItems: React.VFC = () => {
         </Typography>
       </div>
       <ListItem>
-        <NotMarriedControl />
+        <NotMarriedFormControl />
       </ListItem>
-      <ParentingControl />
+      <ParentingFormControl />
       <Divider />
       <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
@@ -77,7 +77,7 @@ export const SearchListItems: React.VFC = () => {
         <JobsFormControl />
       </ListItem>
       <ListItem>
-        <PersonalYearlyIncomeControl />
+        <PersonalYearlyIncomeFormControl />
       </ListItem>
       <Divider />
     </>

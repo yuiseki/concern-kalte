@@ -12,7 +12,7 @@ import {
   Typography,
 } from '@material-ui/core';
 
-export const ParentingControl: React.VFC = () => {
+export const ParentingFormControl: React.VFC = () => {
   const name = 'parenting';
   const [value, setValue] = useLocalStorageValue(name, 'false');
   return (
@@ -34,7 +34,11 @@ export const ParentingControl: React.VFC = () => {
           />
         </FormControl>
       </ListItem>
-      <ListItem>{value === 'true' && <ChildBirthYearFormControl />}</ListItem>
+      {value === 'true' && (
+        <ListItem>
+          <ChildBirthYearFormControl />
+        </ListItem>
+      )}
     </>
   );
 };

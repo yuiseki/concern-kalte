@@ -3,7 +3,7 @@ import 'twin.macro';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
 import { Checkbox, FormControl, FormControlLabel } from '@material-ui/core';
 
-export const NotMarriedControl: React.VFC = () => {
+export const NotMarriedFormControl: React.VFC = () => {
   const name = 'not-married';
   const [value, setValue] = useLocalStorageValue(name, 'false');
   return (

@@ -3,7 +3,7 @@ import 'twin.macro';
 import useLocalStorageValue from '~/hooks/useLocalStorage';
 import { Box, FormControl, Slider, Typography } from '@material-ui/core';
 
-export const PersonalYearlyIncomeControl: React.VFC = () => {
+export const PersonalYearlyIncomeFormControl: React.VFC = () => {
   const name = 'personal-yearly-income';
   const [value, setValue] = useLocalStorageValue(name, '0');
 

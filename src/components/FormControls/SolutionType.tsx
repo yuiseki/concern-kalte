@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const SolutionTypeGovNationControl: React.VFC = () => {
+const SolutionTypeGovNationFormControl: React.VFC = () => {
   const name = 'solution-type-gov-nation';
   const [value, setValue] = useLocalStorageValue(name, 'true');
 
@@ -36,7 +36,7 @@ const SolutionTypeGovNationControl: React.VFC = () => {
   );
 };
 
-const SolutionTypeLocalGovStateControl: React.VFC = () => {
+const SolutionTypeLocalGovStateFormControl: React.VFC = () => {
   const name = 'solution-type-gov-state';
   const [value, setValue] = useLocalStorageValue(name, 'true');
 
@@ -59,7 +59,7 @@ const SolutionTypeLocalGovStateControl: React.VFC = () => {
   );
 };
 
-const SolutionTypeLocalGovCityControl: React.VFC = () => {
+const SolutionTypeLocalGovCityFormControl: React.VFC = () => {
   const name = 'solution-type-gov-city';
   const [value, setValue] = useLocalStorageValue(name, 'true');
 
@@ -82,7 +82,7 @@ const SolutionTypeLocalGovCityControl: React.VFC = () => {
   );
 };
 
-const SolutionTypeNPOControl: React.VFC = () => {
+const SolutionTypeNPOFormControl: React.VFC = () => {
   const name = 'solution-type-npo';
   const [value, setValue] = useLocalStorageValue(name, 'true');
 
@@ -105,7 +105,7 @@ const SolutionTypeNPOControl: React.VFC = () => {
   );
 };
 
-export const SolutionTypeControl: React.VFC = () => {
+export const SolutionTypeFormControl: React.VFC = () => {
   return (
     <>
       <Accordion>
@@ -114,10 +114,10 @@ export const SolutionTypeControl: React.VFC = () => {
         </AccordionSummary>
         <AccordionDetails>
           <List dense>
-            <SolutionTypeGovNationControl />
-            <SolutionTypeLocalGovStateControl />
-            <SolutionTypeLocalGovCityControl />
-            <SolutionTypeNPOControl />
+            <SolutionTypeGovNationFormControl />
+            <SolutionTypeLocalGovStateFormControl />
+            <SolutionTypeLocalGovCityFormControl />
+            <SolutionTypeNPOFormControl />
           </List>
         </AccordionDetails>
       </Accordion>
