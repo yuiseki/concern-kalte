@@ -13,6 +13,7 @@ import { NotMarriedControl } from '~/components/FormControls/Family';
 import { ParentingControl } from '~/components/FormControls/Parenting';
 import { JobsFormControl } from '~/components/FormControls/Jobs';
 import { PersonalYearlyIncomeControl } from '~/components/FormControls/Income';
+import { SolutionTypeControl } from './FormControls/SolutionType';
 
 export const SearchListItems: React.VFC = () => {
   return (
@@ -23,6 +24,10 @@ export const SearchListItems: React.VFC = () => {
           制度絞り込み
         </Typography>
       </div>
+      <ListItem>
+        <SolutionTypeControl />
+      </ListItem>
+      <Divider />
       <div tw='ml-4'>
         <Typography variant='h6' noWrap>
           居住地域
@@ -41,7 +46,7 @@ export const SearchListItems: React.VFC = () => {
         <ResidentialHouseTypeFormControl />
       </ListItem>
       <Divider />
-      <div tw='ml-4'>
+      <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
           個人属性
         </Typography>
@@ -53,7 +58,7 @@ export const SearchListItems: React.VFC = () => {
         <GenderFormControl />
       </ListItem>
       <Divider />
-      <div tw='ml-4'>
+      <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
           家族構成
         </Typography>
@@ -63,7 +68,7 @@ export const SearchListItems: React.VFC = () => {
       </ListItem>
       <ParentingControl />
       <Divider />
-      <div tw='ml-4'>
+      <div tw='ml-4 my-2'>
         <Typography variant='h6' noWrap>
           職業と収入
         </Typography>
