@@ -82,6 +82,29 @@ const SolutionTypeLocalGovCityFormControl: React.VFC = () => {
   );
 };
 
+const SolutionTypeCouncilOfSocialWelfareFormControl: React.VFC = () => {
+  const name = 'solution-type-council-of-social-welfare';
+  const [value, setValue] = useLocalStorageValue(name, 'true');
+
+  return (
+    <FormControl variant='outlined' fullWidth>
+      <FormControlLabel
+        label='社会福祉協議会'
+        control={
+          <Checkbox
+            name={name}
+            checked={value === 'true'}
+            onChange={(e) => {
+              // @ts-ignore
+              setValue(String(e.target.checked));
+            }}
+          />
+        }
+      />
+    </FormControl>
+  );
+};
+
 const SolutionTypeNPOFormControl: React.VFC = () => {
   const name = 'solution-type-npo';
   const [value, setValue] = useLocalStorageValue(name, 'true');
@@ -117,6 +140,7 @@ export const SolutionTypeFormControl: React.VFC = () => {
             <SolutionTypeGovNationFormControl />
             <SolutionTypeLocalGovStateFormControl />
             <SolutionTypeLocalGovCityFormControl />
+            <SolutionTypeCouncilOfSocialWelfareFormControl />
             <SolutionTypeNPOFormControl />
           </List>
         </AccordionDetails>
