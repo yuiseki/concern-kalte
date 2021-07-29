@@ -317,7 +317,7 @@ function Index() {
             <MenuIcon />
           </IconButton>
           <Typography variant='h6' noWrap>
-            あなたにマッチする支援
+            あなたにオススメの情報
           </Typography>
         </Toolbar>
       </AppBar>
