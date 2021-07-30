@@ -32,7 +32,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import { SearchListItems } from './SearchListItems';
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
