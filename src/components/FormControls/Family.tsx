@@ -55,9 +55,10 @@ export const MarriageStatusFormControl: React.VFC = () => {
         <MenuItem value='common-low-marriage'>事実婚</MenuItem>
         <MenuItem value='consider-marriage'>結婚を検討している</MenuItem>
         <MenuItem value='married'>結婚している</MenuItem>
+        <MenuItem value='separated'>別居している</MenuItem>
         <MenuItem value='consider-divorce'>離婚を検討している</MenuItem>
-        <MenuItem value='divorced'>離婚している</MenuItem>
-        <MenuItem value='separated'>別居中</MenuItem>
+        <MenuItem value='divorce-mediation'>離婚調停中</MenuItem>
+        <MenuItem value='divorced'>離婚した</MenuItem>
         <MenuItem value='other'>その他</MenuItem>
       </Select>
     </FormControl>

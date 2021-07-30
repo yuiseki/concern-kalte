@@ -110,11 +110,13 @@ export const ResidentialHouseTypeFormControl: React.VFC = () => {
       >
         <MenuItem value='null'>未回答</MenuItem>
         <MenuItem value='consider-moving'>引っ越しを検討中</MenuItem>
+        <MenuItem value='share-house'>シェアハウス</MenuItem>
         <MenuItem value='rent-house'>賃貸</MenuItem>
         <MenuItem value='public-house'>公営住宅</MenuItem>
         <MenuItem value='owned-house'>持ち家</MenuItem>
         <MenuItem value='parent-house'>実家</MenuItem>
         <MenuItem value='nothing'>住む場所がない</MenuItem>
+        <MenuItem value='freeloader'>友人宅</MenuItem>
         <MenuItem value='net-cafe'>ネットカフェ</MenuItem>
         <MenuItem value='homeless-shelter'>緊急一時宿泊施設</MenuItem>
         <MenuItem value='dv-shelter'>DVシェルター</MenuItem>
