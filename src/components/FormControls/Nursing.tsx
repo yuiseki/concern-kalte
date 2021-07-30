@@ -16,7 +16,7 @@ export const NursingFormControl: React.VFC = () => {
       <ListItem>
         <FormControl variant='outlined'>
           <FormControlLabel
-            label='介護中'
+            label='親を介護している'
             control={
               <Checkbox
                 name={name}
