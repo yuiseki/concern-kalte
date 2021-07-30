@@ -89,8 +89,8 @@ export const SearchListItems: React.VFC = () => {
       <ListItem>
         <MarriageStatusFormControl />
       </ListItem>
-      <LiveWithParentsFormControl />
       <ParentingFormControl />
+      <LiveWithParentsFormControl />
       <NursingFormControl />
       <Divider />
     </>
