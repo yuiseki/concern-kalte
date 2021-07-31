@@ -1,5 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
-import React from 'react';
+import React, { useState } from 'react';
 import 'twin.macro';
 import {
   Avatar,
@@ -8,6 +8,8 @@ import {
   CardContent,
   CardHeader,
   IconButton,
+  Menu,
+  MenuItem,
 } from '@material-ui/core';
 import { IRecipeModel } from '~/models/RecipeModel';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -48,6 +50,9 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
 }: {
   recipe: IRecipeModel;
 }) => {
+  const [menuAnchor, setMenuAnchor] = React.useState<null | HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <Card key={recipe._id} tw='my-5' elevation={2}>
       <CardHeader
@@ -62,9 +67,28 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
           </Avatar>
         }
         action={
-          <IconButton aria-label='edit'>
-            <MoreVertIcon />
-          </IconButton>
+          <>
+            <IconButton
+              tw='focus:outline-none'
+              aria-label='edit'
+              onClick={(e) => {
+                setMenuAnchor(e.currentTarget);
+                setMenuOpen(true);
+              }}
+            >
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              anchorEl={menuAnchor}
+              open={menuOpen}
+              onClose={() => {
+                setMenuAnchor(null);
+                setMenuOpen(false);
+              }}
+            >
+              <MenuItem>Edit</MenuItem>
+            </Menu>
+          </>
         }
         title={<Link href={'/recipes/' + recipe._id}>{recipe.title}</Link>}
         subheader={new Date(recipe.createdAt).toLocaleString()}
@@ -73,10 +97,10 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
         <p>{recipe.body}</p>
       </CardContent>
       <CardActions>
-        <IconButton>
+        <IconButton tw='focus:outline-none'>
           <FavoriteIcon />
         </IconButton>
-        <IconButton>
+        <IconButton tw='focus:outline-none'>
           <ShareIcon />
         </IconButton>
       </CardActions>
