@@ -1,4 +1,6 @@
 /// <reference types="@emotion/react/types/css-prop" />
+import { Button } from '@material-ui/core';
+import Link from 'next/link';
 import React from 'react';
 import useSWR from 'swr';
 import 'twin.macro';
@@ -11,6 +13,13 @@ const Page: React.VFC = () => {
   return (
     <Layout>
       <h1 tw='text-2xl'>お悩み解決レシピ</h1>
+      <div tw='my-4'>
+        <Link href='/recipes/new'>
+          <Button variant='contained' color='primary'>
+            投稿
+          </Button>
+        </Link>
+      </div>
       <div tw='my-4'>
         {recipes?.map((r) => {
           return <RecipeCard key={r._id} recipe={r} />;
