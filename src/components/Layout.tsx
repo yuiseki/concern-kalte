@@ -116,6 +116,14 @@ const MyDrawer: React.VFC = () => {
             <ListItemText primary='お助け制度検索' />
           </ListItem>
         </Link>
+        <Link href='/recipes'>
+          <ListItem button key='お悩み解決レシピ'>
+            <ListItemIcon>
+              <FormatListNumberedIcon />
+            </ListItemIcon>
+            <ListItemText primary='お悩み解決レシピ' />
+          </ListItem>
+        </Link>
       </List>
       {session && (
         <>
