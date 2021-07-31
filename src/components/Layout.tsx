@@ -208,9 +208,7 @@ export function Layout({ children }: Props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap>
-            生活お悩みカルテ
-          </Typography>
+          <h1 tw='text-xl'>生活お悩みカルテ</h1>
         </Toolbar>
       </AppBar>
       <Drawer
