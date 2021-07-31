@@ -1,10 +1,8 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import React from 'react';
-import useSWR from 'swr';
 import 'twin.macro';
 import {
   Avatar,
-  Button,
   Card,
   CardActions,
   CardContent,
@@ -15,6 +13,7 @@ import { IRecipeModel } from '~/models/RecipeModel';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
+import Link from 'next/link';
 
 function stringToColor(string) {
   let hash = 0;
@@ -67,7 +66,7 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
             <MoreVertIcon />
           </IconButton>
         }
-        title={recipe.title}
+        title={<Link href={'/recipes/' + recipe._id}>{recipe.title}</Link>}
         subheader={new Date(recipe.createdAt).toLocaleString()}
       />
       <CardContent>
