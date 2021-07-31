@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import { IRecipeModel } from './RecipeModel';
+import { ITeamModel } from './TeamModel';
 
 const HASH_ROUNDS = 10;
 
@@ -18,7 +20,8 @@ interface IUser {
   password: string;
   email: string;
   comparePassword: (candidatePassword: string) => boolean;
-  team?: mongoose.ObjectId;
+  recipes?: IRecipeModel[];
+  team?: ITeamModel[];
 }
 
 export interface IUserModel extends IUser, mongoose.Document {}
@@ -38,6 +41,7 @@ const schema = new mongoose.Schema(
     personalYearlyIncome: { type: String, default: null },
     email: { type: String, lowercase: true, required: true, unique: true },
     password: { type: String, required: true },
+    recipes: [{ type: mongoose.SchemaTypes.ObjectId, ref: 'RecipeModel' }],
     team: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'TeamModel',
