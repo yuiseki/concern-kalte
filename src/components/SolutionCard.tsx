@@ -9,7 +9,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Divider,
   Link,
   List,
   ListItem,
