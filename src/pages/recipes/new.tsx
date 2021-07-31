@@ -6,6 +6,7 @@ import useSWR from 'swr';
 import 'twin.macro';
 import { Layout } from '~/components/Layout';
 import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 
 export const Page: React.VFC = () => {
   const router = useRouter();
@@ -32,6 +33,13 @@ export const Page: React.VFC = () => {
   return (
     <Layout>
       <h3 tw='text-3xl font-bold'>お悩み解決レシピ</h3>
+      <div tw='my-4'>
+        <Link href='/recipes'>
+          <Button variant='outlined' color='primary'>
+            一覧に戻る
+          </Button>
+        </Link>
+      </div>
       {me && (
         <form tw='my-4 flex-grow' onSubmit={onSubmit}>
           <Grid container spacing={4} direction='column'>

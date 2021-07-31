@@ -15,7 +15,7 @@ const Page: React.VFC = () => {
       <h1 tw='text-2xl'>お悩み解決レシピ</h1>
       <div tw='my-4'>
         <Link href='/recipes/new'>
-          <Button variant='contained' color='primary'>
+          <Button variant='outlined' color='primary'>
             投稿
           </Button>
         </Link>
