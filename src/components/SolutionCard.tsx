@@ -9,7 +9,6 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  Divider,
   Link,
   List,
   ListItem,
@@ -63,7 +62,6 @@ export const SolutionCard: React.VFC<{ solution: any }> = ({
       </CardContent>
       <CardActions>
         <Rating name='rating' defaultValue={solution.rating} precision={0.5} />
-        <Divider />
         {solution.url && (
           <Link href={solution.url} target='_blank'>
             <Button>
