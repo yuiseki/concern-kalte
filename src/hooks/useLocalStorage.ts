@@ -15,15 +15,18 @@ export const useLocalStorageValue = (key: string, defaultValue = 'null') => {
   };
 
   const setStoredValue = (value) => {
-    // eslint-disable-next-line no-console
-    console.log('useLocalStorageValue setItem', key, value);
+    console.info('useLocalStorageValue setItem', key, value);
     localStorage.setItem(key, value);
   };
 
   useEffect(() => {
     const storageItem = localStorage.getItem(key);
-    // eslint-disable-next-line no-console
-    console.log('useLocalStorageValue getItem', key, storageItem, defaultValue);
+    console.info(
+      'useLocalStorageValue getItem',
+      key,
+      storageItem,
+      defaultValue
+    );
     if (
       storageItem === null ||
       storageItem === 'null' ||
