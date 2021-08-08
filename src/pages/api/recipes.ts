@@ -25,7 +25,9 @@ export default async (req, res) => {
 
   switch (req.method) {
     case 'GET': {
-      const recipes = await RecipeModel.find().populate('user', 'name');
+      const recipes = await RecipeModel.find({}, null, {
+        sort: { createdAt: -1 },
+      }).populate('user', 'name');
       res.status(200).json(recipes);
       break;
     }

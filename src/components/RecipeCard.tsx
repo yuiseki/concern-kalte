@@ -53,6 +53,10 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
   const [menuAnchor, setMenuAnchor] = React.useState<null | HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const subheader = `${recipe.user.name}さん • ${new Date(
+    recipe.createdAt
+  ).toLocaleString()}`;
+
   return (
     <Card key={recipe._id} tw='my-5' elevation={2}>
       <CardHeader
@@ -91,7 +95,7 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
           </>
         }
         title={<Link href={'/recipes/' + recipe._id}>{recipe.title}</Link>}
-        subheader={new Date(recipe.createdAt).toLocaleString()}
+        subheader={subheader}
       />
       <CardContent>
         <p>{recipe.body}</p>
