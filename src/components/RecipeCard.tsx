@@ -17,34 +17,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import Link from 'next/link';
 
-function stringToColor(string) {
-  let hash = 0;
-  let i;
-
-  /* eslint-disable no-bitwise */
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  }
-
-  let color = '#';
-
-  for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.substr(-2);
-  }
-  /* eslint-enable no-bitwise */
-
-  return color;
-}
-
-const stringToShortString = (string) => {
-  if (string.indexOf(' ') > 0) {
-    return `${string.split(' ')[0][0]}${string.split(' ')[1][0]}`;
-  } else {
-    return string.slice(0, 2);
-  }
-};
-
 export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
   recipe,
 }: {
@@ -110,4 +82,32 @@ export const RecipeCard: React.VFC<{ recipe: IRecipeModel }> = ({
       </CardActions>
     </Card>
   );
+};
+
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.substr(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+const stringToShortString = (string) => {
+  if (string.indexOf(' ') > 0) {
+    return `${string.split(' ')[0][0]}${string.split(' ')[1][0]}`;
+  } else {
+    return string.slice(0, 2);
+  }
 };
